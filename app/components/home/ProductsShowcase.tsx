@@ -7,67 +7,49 @@ const products = [
   {
     id: 1,
     name: "Botanical Recovery Serum",
-    category: "Hydration",
     price: "$48",
     image: "/images/serum1.webp",
     glow: "rgba(168,181,155,0.30)",
-    description:
-      "Lightweight hydration designed for tired and stressed skin.",
   },
 
   {
     id: 2,
     name: "Centella Skin Essence",
-    category: "Barrier Care",
     price: "$52",
     image: "/images/serum2.webp",
     glow: "rgba(175,207,211,0.30)",
-    description:
-      "A calming formula inspired by botanical barrier recovery.",
   },
 
   {
     id: 3,
     name: "Night Repair Ampoule",
-    category: "Recovery",
     price: "$64",
     image: "/images/serum3.webp",
     glow: "rgba(198,162,127,0.30)",
-    description:
-      "Deep overnight nourishment with soft mineral textures.",
   },
 
   {
     id: 4,
     name: "Botanical Glow Oil",
-    category: "Radiance",
     price: "$58",
     image: "/images/serum4.webp",
     glow: "rgba(168,181,155,0.30)",
-    description:
-      "Natural radiance with lightweight botanical oils.",
   },
 
   {
     id: 5,
     name: "Crystal Water Toner",
-    category: "Freshness",
     price: "$42",
     image: "/images/serum5.webp",
     glow: "rgba(175,207,211,0.30)",
-    description:
-      "Refreshing hydration inspired by crystal water reflections.",
   },
 
   {
     id: 6,
     name: "Earth Balance Cream",
-    category: "Moisturizer",
     price: "$55",
     image: "/images/serum6.webp",
     glow: "rgba(198,162,127,0.30)",
-    description:
-      "Soft moisture recovery with warm earthy ingredients.",
   },
 ];
 
@@ -107,7 +89,7 @@ export default function ProductsShowcase() {
         "
       >
         {/* LEFT */}
-        <div className="max-w-[650px]">
+        <div className="max-w-[620px]">
           <div
             className="
               mb-6
@@ -139,7 +121,7 @@ export default function ProductsShowcase() {
 
           <h2
             className="
-              max-w-[620px]
+              max-w-[560px]
               text-[3rem]
               font-semibold
               leading-[0.88]
@@ -157,15 +139,14 @@ export default function ProductsShowcase() {
         <div className="lg:pl-10">
           <p
             className="
-              max-w-[340px]
-              text-[0.92rem]
+              max-w-[280px]
+              text-[0.88rem]
               leading-[1.9]
               text-[#666]
             "
           >
-            Thoughtfully crafted botanical formulas
-            inspired by calm textures, hydration and
-            modern self-care experiences.
+            Botanical skincare inspired by calm
+            textures and modern luxury wellness.
           </p>
         </div>
       </div>
@@ -239,13 +220,13 @@ export default function ProductsShowcase() {
                 relative
                 z-10
                 flex
-                h-[540px]
+                h-[480px]
                 flex-col
                 overflow-hidden
                 rounded-[38px]
                 border
                 border-white/30
-                bg-white/[0.16]
+                bg-white/[0.14]
                 p-7
                 backdrop-blur-[18px]
                 transition-all
@@ -265,20 +246,6 @@ export default function ProductsShowcase() {
                 "
               />
 
-              {/* CATEGORY */}
-              <div className="relative z-20">
-                <p
-                  className="
-                    text-[10px]
-                    uppercase
-                    tracking-[0.30em]
-                    text-[#888]
-                  "
-                >
-                  {product.category}
-                </p>
-              </div>
-
               {/* PRODUCT */}
               <div
                 className="
@@ -288,14 +255,13 @@ export default function ProductsShowcase() {
                   flex-1
                   items-center
                   justify-center
-                  mb-8
                 "
               >
                 {/* SHADOW BASE */}
                 <div
                   className="
                     absolute
-                    bottom-[16%]
+                    bottom-[18%]
                     h-[30px]
                     w-[180px]
                     rounded-full
@@ -320,7 +286,7 @@ export default function ProductsShowcase() {
                     height={600}
                     quality={100}
                     className="
-                      w-[250px]
+                      w-[230px]
                       object-contain
                       drop-shadow-[0_40px_60px_rgba(0,0,0,0.18)]
                     "
@@ -329,11 +295,20 @@ export default function ProductsShowcase() {
               </div>
 
               {/* INFO */}
-              <div className="relative z-20">
+              <div
+                className="
+                  relative
+                  z-20
+                  flex
+                  items-end
+                  justify-between
+                  gap-6
+                "
+              >
                 <h3
                   className="
-                    max-w-[240px]
-                    text-[1.45rem]
+                    max-w-[200px]
+                    text-[1.3rem]
                     font-medium
                     leading-[1.05]
                     tracking-[-0.05em]
@@ -343,51 +318,16 @@ export default function ProductsShowcase() {
                   {product.name}
                 </h3>
 
-                <p
+                <span
                   className="
-                    mt-4
-                    max-w-[290px]
-                    text-[0.88rem]
-                    leading-[1.8]
-                    text-[#666]
+                    text-[1.05rem]
+                    tracking-[-0.04em]
+                    text-[#222]
+                    whitespace-nowrap
                   "
                 >
-                  {product.description}
-                </p>
-
-                {/* BOTTOM */}
-                <div
-                  className="
-                    mt-8
-                    flex
-                    items-center
-                    justify-between
-                  "
-                >
-                  <span
-                    className="
-                      text-[1rem]
-                      tracking-[-0.03em]
-                      text-[#222]
-                    "
-                  >
-                    {product.price}
-                  </span>
-
-                  <motion.button
-                    whileHover={{
-                      x: 3,
-                    }}
-                    className="
-                      text-[11px]
-                      uppercase
-                      tracking-[0.24em]
-                      text-[#555]
-                    "
-                  >
-                    Explore →
-                  </motion.button>
-                </div>
+                  {product.price}
+                </span>
               </div>
 
               {/* HOVER SHINE */}
@@ -405,7 +345,7 @@ export default function ProductsShowcase() {
                   background: `
                     radial-gradient(
                       circle at top,
-                      rgba(255,255,255,0.24),
+                      rgba(255,255,255,0.22),
                       transparent 60%
                     )
                   `,
