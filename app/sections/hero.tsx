@@ -20,11 +20,10 @@ const moods = [
 
     label: "Botanical Energy",
 
-    title:
-      "Nature\nredesigned\nfor slower rituals.",
+    title: "Nature redesigned\nfor modern skin rituals.",
 
     description:
-      "Botanical skincare experiences inspired by soft textures, organic light and calming nighttime rituals.",
+      "Immersive botanical skincare experiences inspired by living textures, organic light and cinematic botanical aesthetics.",
 
     accent: "#7C8B68",
 
@@ -45,11 +44,10 @@ const moods = [
 
     label: "Hydration Ritual",
 
-    title:
-      "Pure hydration\nfor glowing\nquiet mornings.",
+    title: "Pure hydration\nin cinematic motion.",
 
     description:
-      "Inspired by waterfalls, crystal reflections and immersive hydration rituals designed for modern wellness.",
+      "Inspired by waterfalls, crystal reflections and fluid textures crafted for immersive wellness experiences.",
 
     accent: "#9ECED7",
 
@@ -70,11 +68,10 @@ const moods = [
 
     label: "Earth Minerals",
 
-    title:
-      "Grounded skincare\nfor softer\nnight routines.",
+    title: "Grounded beauty\nthrough texture and light.",
 
     description:
-      "Warm mineral textures and calming atmospheric skincare created for slower self-care moments.",
+      "Warm mineral tones, earthy elegance and soft atmospheric textures.",
 
     accent: "#C6A27F",
 
@@ -99,6 +96,7 @@ export default function Hero() {
         bg-transparent
       "
     >
+
       {/* COLOR ATMOSPHERE */}
       <motion.div
         animate={{
@@ -139,7 +137,7 @@ export default function Hero() {
           absolute
           inset-0
           z-[1]
-          opacity-30
+          opacity-40
           blur-[100px]
         "
       />
@@ -159,7 +157,7 @@ export default function Hero() {
         }}
       />
 
-      {/* BIG EDEN */}
+      {/* BIG TEXT */}
       <motion.div
         animate={{
           color: active.accent,
@@ -174,10 +172,10 @@ export default function Hero() {
           z-[2]
           -translate-x-1/2
           -translate-y-1/2
-          text-[15vw]
+          text-[18vw]
           font-black
-          tracking-[-0.10em]
-          opacity-[0.035]
+          tracking-[-0.08em]
+          opacity-[0.05]
           select-none
         "
       >
@@ -213,7 +211,7 @@ export default function Hero() {
           items-center
           justify-between
           px-8
-          pt-10
+          py-8
           lg:px-16
         "
       >
@@ -232,17 +230,17 @@ export default function Hero() {
             hidden
             items-center
             gap-12
-            text-[11px]
+            text-[12px]
             uppercase
-            tracking-[0.28em]
+            tracking-[0.25em]
             text-[#555]
             lg:flex
           "
         >
-          <a href="#">Products</a>
-          <a href="#">Rituals</a>
+          <a href="#">Projects</a>
           <a href="#">Experience</a>
           <a href="#">Studio</a>
+          <a href="#">Contact</a>
         </nav>
       </header>
 
@@ -257,7 +255,7 @@ export default function Hero() {
           gap-10
           px-8
           pb-10
-          pt-10
+          pt-6
           lg:grid-cols-2
           lg:px-16
         "
@@ -270,13 +268,13 @@ export default function Hero() {
               borderColor: active.accent,
             }}
             className="
-              mb-10
+              mb-7
               inline-flex
               items-center
               gap-3
               rounded-full
               border
-              bg-white/50
+              bg-white/60
               px-5
               py-3
               backdrop-blur-xl
@@ -296,13 +294,13 @@ export default function Hero() {
 
             <span
               className="
-                text-[10px]
+                text-[11px]
                 uppercase
-                tracking-[0.30em]
+                tracking-[0.25em]
                 text-[#666]
               "
             >
-              Botanical Experience
+              Immersive Botanical Experience
             </span>
           </motion.div>
 
@@ -328,12 +326,12 @@ export default function Hero() {
               <h2
                 className="
                   whitespace-pre-line
-                  text-[4.6rem]
+                  text-[4rem]
                   font-semibold
-                  leading-[0.80]
-                  tracking-[-0.10em]
-                  text-[#111]
-                  lg:text-[7.5rem]
+                  leading-[0.92]
+                  tracking-[-0.08em]
+                  text-[#1b1b1b]
+                  lg:text-[6rem]
                 "
               >
                 {active.title}
@@ -341,10 +339,10 @@ export default function Hero() {
 
               <p
                 className="
-                  mt-10
-                  max-w-[340px]
-                  text-[0.92rem]
-                  leading-[1.9]
+                  mt-8
+                  max-w-[560px]
+                  text-[1.05rem]
+                  leading-relaxed
                   text-[#5f5f5f]
                 "
               >
@@ -364,25 +362,23 @@ export default function Hero() {
                   onClick={() => setActive(mood)}
                   whileHover={{
                     y: -6,
-                    scale: 1.02,
+                    scale: 1.03,
                   }}
                   whileTap={{
-                    scale: 0.98,
+                    scale: 0.97,
                   }}
                   className="
                     group
                     relative
                     overflow-hidden
-                    rounded-[38px]
+                    rounded-[30px]
                     border
                     border-[#e7e1d8]
-                    bg-white/40
-                    px-8
-                    py-6
+                    bg-white/45
+                    px-7
+                    py-5
                     text-left
                     backdrop-blur-xl
-                    transition-all
-                    duration-500
                   "
                   style={{
                     boxShadow:
@@ -391,7 +387,7 @@ export default function Hero() {
                         : "none",
                   }}
                 >
-                  {/* ACTIVE LIGHT */}
+                  {/* HOVER LIGHT */}
                   <motion.div
                     animate={{
                       opacity:
@@ -415,44 +411,31 @@ export default function Hero() {
                   <div className="relative z-10">
                     <div
                       className="
-                        mb-5
+                        mb-4
                         flex
-                        h-14
-                        w-14
+                        h-12
+                        w-12
                         items-center
                         justify-center
                         rounded-full
                       "
                       style={{
-                        background: `${mood.accent}20`,
+                        background: `${mood.accent}25`,
                       }}
                     >
                       <Icon
-                        size={24}
+                        size={22}
                         style={{
                           color: mood.accent,
                         }}
                       />
                     </div>
 
-                    <h3
-                      className="
-                        text-[1.05rem]
-                        font-medium
-                        tracking-[-0.03em]
-                        text-[#1f1f1f]
-                      "
-                    >
+                    <h3 className="text-[1rem] font-medium text-[#1f1f1f]">
                       {mood.name}
                     </h3>
 
-                    <p
-                      className="
-                        mt-2
-                        text-[0.85rem]
-                        text-[#6d6d6d]
-                      "
-                    >
+                    <p className="mt-2 text-sm text-[#6d6d6d]">
                       {mood.label}
                     </p>
                   </div>
@@ -474,7 +457,7 @@ export default function Hero() {
           {/* PARTICLES */}
           <motion.div
             animate={{
-              opacity: [0.20, 0.45, 0.20],
+              opacity: [0.25, 0.5, 0.25],
             }}
             transition={{
               repeat: Infinity,
@@ -523,12 +506,11 @@ export default function Hero() {
                   absolute
                   inset-0
                   rounded-full
-                  blur-[140px]
+                  blur-[120px]
                   opacity-70
                 "
               />
 
-              {/* MODEL */}
               <motion.div
                 animate={{
                   y: [0, -10, 0],
@@ -538,7 +520,6 @@ export default function Hero() {
                   duration: 7,
                   ease: "easeInOut",
                 }}
-                className="relative"
               >
                 <Image
                   src="/images/modelo1.webp"
@@ -546,39 +527,23 @@ export default function Hero() {
                   width={780}
                   height={1000}
                   priority
-                  quality={90}
+                  quality={85}
                   className="
                     relative
                     z-20
-                    h-[88vh]
+                    h-[86vh]
                     w-auto
                     object-contain
                     object-bottom
                     mix-blend-multiply
-                    opacity-[0.97]
-                  "
-                />
-
-                {/* BOTTOM FADE */}
-                <div
-                  className="
-                    absolute
-                    bottom-0
-                    left-0
-                    z-30
-                    h-[240px]
-                    w-full
-                    bg-gradient-to-t
-                    from-[#f6f3ee]
-                    via-[#f6f3ee]/60
-                    to-transparent
+                    opacity-[0.96]
                   "
                 />
               </motion.div>
             </motion.div>
           </AnimatePresence>
 
-          {/* FLOATING PRODUCT */}
+          {/* PRODUCT CARD */}
           <motion.div
             key={active.id}
             initial={{
@@ -594,33 +559,20 @@ export default function Hero() {
             }}
             className="
               absolute
-              right-[6%]
-              top-[18%]
+              right-[2%]
+              top-[12%]
               z-40
-              overflow-hidden
-              rounded-[42px]
+              rounded-[100px]
               border
               border-[#e4ddd2]
-              bg-white/35
-              p-5
+              bg-white/45
+              p-4
               backdrop-blur-2xl
             "
             style={{
               boxShadow: `0 15px 50px ${active.glow}`,
             }}
           >
-            {/* LIGHT */}
-            <div
-              className="
-                absolute
-                inset-0
-                bg-gradient-to-b
-                from-white/40
-                to-transparent
-                opacity-50
-              "
-            />
-
             <motion.div
               animate={{
                 y: [0, -8, 0],
@@ -630,41 +582,26 @@ export default function Hero() {
                 duration: 5,
                 ease: "easeInOut",
               }}
-              className="relative z-20"
             >
               <Image
                 src={active.product}
                 alt={active.name}
-                width={180}
-                height={240}
-                quality={90}
+                width={150}
+                height={200}
+                quality={80}
                 className="
+                  rounded-[100px]
                   object-cover
                 "
               />
             </motion.div>
 
-            <div className="relative z-20 mt-5">
-              <p
-                className="
-                  text-[10px]
-                  uppercase
-                  tracking-[0.25em]
-                  text-[#777]
-                "
-              >
-                Active Ritual
+            <div className="mt-2">
+              <p className="text-sm text-[#777]">
+                Active Environment
               </p>
 
-              <h3
-                className="
-                  mt-3
-                  text-[1.2rem]
-                  font-medium
-                  tracking-[-0.04em]
-                  text-[#222]
-                "
-              >
+              <h3 className="mt-3 text-lg text-[#222]">
                 {active.name}
               </h3>
             </div>
