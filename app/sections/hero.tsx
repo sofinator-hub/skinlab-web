@@ -177,7 +177,7 @@ export default function Hero() {
           text-[15vw]
           font-black
           tracking-[-0.10em]
-          opacity-[0.03]
+          opacity-[0.035]
           select-none
         "
       >
@@ -240,8 +240,8 @@ export default function Hero() {
           "
         >
           <a href="#">Products</a>
+          <a href="#">Rituals</a>
           <a href="#">Experience</a>
-          <a href="#">Collection</a>
           <a href="#">Studio</a>
         </nav>
       </header>
@@ -263,128 +263,98 @@ export default function Hero() {
         "
       >
         {/* LEFT */}
-        <div className="relative z-30">
-          {/* CONTENT BOX */}
-          <div
+        <div className="relative z-30 max-w-[620px]">
+          {/* LABEL */}
+          <motion.div
+            animate={{
+              borderColor: active.accent,
+            }}
             className="
-              relative
-              max-w-[560px]
-              rounded-[42px]
+              mb-10
+              inline-flex
+              items-center
+              gap-3
+              rounded-full
               border
-              border-white/30
-              bg-white/[0.16]
-              p-8
-              backdrop-blur-[20px]
-              lg:p-10
+              bg-white/50
+              px-5
+              py-3
+              backdrop-blur-xl
             "
           >
-            {/* LIGHT */}
-            <div
-              className="
-                absolute
-                inset-0
-                rounded-[42px]
-                bg-gradient-to-b
-                from-white/35
-                to-transparent
-                opacity-60
-              "
+            <motion.div
+              animate={{
+                opacity: [0.5, 1, 0.5],
+                backgroundColor: active.accent,
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 2.5,
+              }}
+              className="h-2.5 w-2.5 rounded-full"
             />
 
-            <div className="relative z-20">
-              {/* LABEL */}
-              <motion.div
-                animate={{
-                  borderColor: active.accent,
-                }}
+            <span
+              className="
+                text-[10px]
+                uppercase
+                tracking-[0.30em]
+                text-[#666]
+              "
+            >
+              Botanical Experience
+            </span>
+          </motion.div>
+
+          {/* TEXT */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active.id}
+              initial={{
+                opacity: 0,
+                y: 25,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              exit={{
+                opacity: 0,
+              }}
+              transition={{
+                duration: 0.6,
+              }}
+            >
+              <h2
                 className="
-                  mb-10
-                  inline-flex
-                  items-center
-                  gap-3
-                  rounded-full
-                  border
-                  bg-white/50
-                  px-5
-                  py-3
-                  backdrop-blur-xl
+                  whitespace-pre-line
+                  text-[4.6rem]
+                  font-semibold
+                  leading-[0.80]
+                  tracking-[-0.10em]
+                  text-[#111]
+                  lg:text-[7.5rem]
                 "
               >
-                <motion.div
-                  animate={{
-                    opacity: [0.5, 1, 0.5],
-                    backgroundColor: active.accent,
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 2.5,
-                  }}
-                  className="h-2.5 w-2.5 rounded-full"
-                />
+                {active.title}
+              </h2>
 
-                <span
-                  className="
-                    text-[10px]
-                    uppercase
-                    tracking-[0.30em]
-                    text-[#666]
-                  "
-                >
-                  Botanical Experience
-                </span>
-              </motion.div>
-
-              {/* TEXT */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={active.id}
-                  initial={{
-                    opacity: 0,
-                    y: 25,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  exit={{
-                    opacity: 0,
-                  }}
-                  transition={{
-                    duration: 0.6,
-                  }}
-                >
-                  <h2
-                    className="
-                      whitespace-pre-line
-                      text-[4rem]
-                      font-semibold
-                      leading-[0.82]
-                      tracking-[-0.10em]
-                      text-[#111]
-                      lg:text-[6.5rem]
-                    "
-                  >
-                    {active.title}
-                  </h2>
-
-                  <p
-                    className="
-                      mt-8
-                      max-w-[300px]
-                      text-[0.88rem]
-                      leading-[1.9]
-                      text-[#5f5f5f]
-                    "
-                  >
-                    {active.description}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
+              <p
+                className="
+                  mt-10
+                  max-w-[340px]
+                  text-[0.92rem]
+                  leading-[1.9]
+                  text-[#5f5f5f]
+                "
+              >
+                {active.description}
+              </p>
+            </motion.div>
+          </AnimatePresence>
 
           {/* MOODS */}
-          <div className="mt-10 flex flex-wrap gap-5">
+          <div className="mt-24 flex flex-wrap gap-6">
             {moods.map((mood) => {
               const Icon = mood.icon;
 
@@ -403,12 +373,12 @@ export default function Hero() {
                     group
                     relative
                     overflow-hidden
-                    rounded-[34px]
+                    rounded-[38px]
                     border
                     border-[#e7e1d8]
-                    bg-white/35
-                    px-7
-                    py-5
+                    bg-white/40
+                    px-8
+                    py-6
                     text-left
                     backdrop-blur-xl
                     transition-all
@@ -445,10 +415,10 @@ export default function Hero() {
                   <div className="relative z-10">
                     <div
                       className="
-                        mb-4
+                        mb-5
                         flex
-                        h-12
-                        w-12
+                        h-14
+                        w-14
                         items-center
                         justify-center
                         rounded-full
@@ -458,7 +428,7 @@ export default function Hero() {
                       }}
                     >
                       <Icon
-                        size={22}
+                        size={24}
                         style={{
                           color: mood.accent,
                         }}
@@ -467,7 +437,7 @@ export default function Hero() {
 
                     <h3
                       className="
-                        text-[1rem]
+                        text-[1.05rem]
                         font-medium
                         tracking-[-0.03em]
                         text-[#1f1f1f]
@@ -478,8 +448,8 @@ export default function Hero() {
 
                     <p
                       className="
-                        mt-1
-                        text-[0.82rem]
+                        mt-2
+                        text-[0.85rem]
                         text-[#6d6d6d]
                       "
                     >
@@ -624,15 +594,14 @@ export default function Hero() {
             }}
             className="
               absolute
-              right-[8%]
-              top-[16%]
+              right-[6%]
+              top-[18%]
               z-40
-              w-[230px]
               overflow-hidden
-              rounded-[38px]
+              rounded-[42px]
               border
               border-[#e4ddd2]
-              bg-white/30
+              bg-white/35
               p-5
               backdrop-blur-2xl
             "
@@ -661,33 +630,21 @@ export default function Hero() {
                 duration: 5,
                 ease: "easeInOut",
               }}
-              className="
-                relative
-                z-20
-                flex
-                justify-center
-              "
+              className="relative z-20"
             >
               <Image
                 src={active.product}
                 alt={active.name}
-                width={150}
-                height={220}
+                width={180}
+                height={240}
                 quality={90}
                 className="
-                  object-contain
+                  object-cover
                 "
               />
             </motion.div>
 
-            <div
-              className="
-                relative
-                z-20
-                mt-5
-                text-center
-              "
-            >
+            <div className="relative z-20 mt-5">
               <p
                 className="
                   text-[10px]
@@ -696,15 +653,14 @@ export default function Hero() {
                   text-[#777]
                 "
               >
-                Featured Product
+                Active Ritual
               </p>
 
               <h3
                 className="
                   mt-3
-                  text-[1rem]
+                  text-[1.2rem]
                   font-medium
-                  leading-[1.2]
                   tracking-[-0.04em]
                   text-[#222]
                 "
