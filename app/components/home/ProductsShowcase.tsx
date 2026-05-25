@@ -70,7 +70,7 @@ export default function ProductsShowcase() {
         lg:px-16
       "
     >
-      {/* BACKGROUND LIGHT */}
+      {/* AMBIENT LIGHT */}
       <div
         className="
           absolute
@@ -79,8 +79,8 @@ export default function ProductsShowcase() {
           h-[500px]
           w-[500px]
           rounded-full
-          bg-[#dfe8d7]/25
-          blur-[120px]
+          bg-[#dfe8d7]/20
+          blur-[140px]
         "
       />
 
@@ -95,7 +95,7 @@ export default function ProductsShowcase() {
         "
       >
         {/* LEFT */}
-        <div className="max-w-[780px]">
+        <div className="max-w-[760px]">
           <div
             className="
               mb-6
@@ -105,7 +105,7 @@ export default function ProductsShowcase() {
               rounded-full
               border
               border-[#ddd5ca]
-              bg-white/40
+              bg-white/35
               px-5
               py-3
               backdrop-blur-xl
@@ -127,13 +127,13 @@ export default function ProductsShowcase() {
 
           <h2
             className="
-              max-w-[900px]
-              text-[3.4rem]
+              max-w-[820px]
+              text-[3.2rem]
               font-semibold
               leading-[0.9]
               tracking-[-0.08em]
               text-[#111]
-              lg:text-[5rem]
+              lg:text-[4.8rem]
             "
           >
             Skincare designed
@@ -145,11 +145,11 @@ export default function ProductsShowcase() {
         </div>
 
         {/* RIGHT */}
-        <div className="lg:pl-20">
+        <div className="lg:pl-16">
           <p
             className="
               max-w-[420px]
-              text-[1.05rem]
+              text-[1.02rem]
               leading-relaxed
               text-[#666]
             "
@@ -157,7 +157,7 @@ export default function ProductsShowcase() {
             Thoughtfully crafted botanical formulas
             designed to transform skincare into a
             calm sensory experience inspired by
-            nature, water and modern wellness rituals.
+            modern wellness rituals.
           </p>
         </div>
       </div>
@@ -166,103 +166,134 @@ export default function ProductsShowcase() {
       <div
         className="
           grid
-          gap-x-14
-          gap-y-16
+          gap-10
           md:grid-cols-2
           xl:grid-cols-3
         "
       >
-        {products.map((product, index) => {
-          const large =
-            index === 1 || index === 4;
-
-          return (
+        {products.map((product, index) => (
+          <motion.div
+            key={product.id}
+            initial={{
+              opacity: 0,
+              y: 60,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.8,
+              delay: index * 0.08,
+            }}
+            viewport={{
+              once: true,
+            }}
+            whileHover={{
+              y: -8,
+            }}
+            className="group relative"
+          >
+            {/* GLOW */}
             <motion.div
-              key={product.id}
-              initial={{
-                opacity: 0,
-                y: 60,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
+              animate={{
+                opacity: [0.35, 0.55, 0.35],
               }}
               transition={{
-                duration: 0.8,
-                delay: index * 0.08,
-              }}
-              viewport={{
-                once: true,
-              }}
-              whileHover={{
-                y: -10,
+                repeat: Infinity,
+                duration: 5,
               }}
               className="
-                group
+                absolute
+                left-1/2
+                top-[35%]
+                z-0
+                h-[260px]
+                w-[260px]
+                -translate-x-1/2
+                rounded-full
+                blur-[90px]
+              "
+              style={{
+                background: product.glow,
+              }}
+            />
+
+            {/* CARD */}
+            <div
+              className="
                 relative
+                z-10
+                flex
+                h-[620px]
+                flex-col
+                justify-between
+                overflow-hidden
+                rounded-[40px]
+                border
+                border-white/35
+                bg-white/[0.18]
+                p-8
+                backdrop-blur-[18px]
+                transition-all
+                duration-700
               "
             >
-              {/* AMBIENT GLOW */}
-              <motion.div
-                animate={{
-                  opacity: [0.4, 0.7, 0.4],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 5,
-                }}
+              {/* LIGHT OVERLAY */}
+              <div
                 className="
                   absolute
-                  left-1/2
-                  top-[28%]
-                  z-0
-                  h-[240px]
-                  w-[240px]
-                  -translate-x-1/2
-                  rounded-full
-                  blur-[90px]
+                  inset-0
+                  rounded-[40px]
+                  bg-gradient-to-b
+                  from-white/35
+                  to-transparent
+                  opacity-50
                 "
-                style={{
-                  background: product.glow,
-                }}
               />
 
-              {/* PRODUCT AREA */}
+              {/* CATEGORY */}
               <div
-                className={`
+                className="
                   relative
+                  z-20
                   flex
                   items-center
-                  justify-center
-                  rounded-[42px]
-                  border
-                  border-white/30
-                  bg-white/[0.18]
-                  backdrop-blur-[14px]
-                  transition-all
-                  duration-700
-
-                  ${
-                    large
-                      ? "h-[520px]"
-                      : "h-[440px]"
-                  }
-                `}
+                  justify-between
+                "
               >
-                {/* INNER LIGHT */}
-                <div
+                <p
                   className="
-                    absolute
-                    inset-0
-                    rounded-[42px]
-                    bg-gradient-to-b
-                    from-white/40
-                    to-transparent
-                    opacity-40
+                    text-[11px]
+                    uppercase
+                    tracking-[0.28em]
+                    text-[#888]
                   "
-                />
+                >
+                  {product.category}
+                </p>
 
-                {/* PRODUCT */}
+                <span
+                  className="
+                    text-[0.95rem]
+                    text-[#666]
+                  "
+                >
+                  {product.price}
+                </span>
+              </div>
+
+              {/* PRODUCT IMAGE */}
+              <div
+                className="
+                  relative
+                  z-20
+                  flex
+                  flex-1
+                  items-center
+                  justify-center
+                "
+              >
                 <motion.div
                   whileHover={{
                     scale: 1.04,
@@ -271,7 +302,6 @@ export default function ProductsShowcase() {
                   transition={{
                     duration: 0.5,
                   }}
-                  className="relative z-10"
                 >
                   <Image
                     src={product.image}
@@ -279,127 +309,96 @@ export default function ProductsShowcase() {
                     width={500}
                     height={600}
                     quality={100}
-                    className={`
+                    className="
+                      w-[280px]
                       object-contain
-                      drop-shadow-[0_25px_40px_rgba(0,0,0,0.12)]
-                      transition-all
-                      duration-700
-
-                      ${
-                        large
-                          ? "w-[300px]"
-                          : "w-[260px]"
-                      }
-                    `}
+                      drop-shadow-[0_30px_45px_rgba(0,0,0,0.12)]
+                    "
                   />
                 </motion.div>
-
-                {/* HOVER SHINE */}
-                <div
-                  className="
-                    absolute
-                    inset-0
-                    rounded-[42px]
-                    opacity-0
-                    transition-all
-                    duration-700
-                    group-hover:opacity-100
-                  "
-                  style={{
-                    background: `
-                      radial-gradient(
-                        circle at top,
-                        rgba(255,255,255,0.35),
-                        transparent 60%
-                      )
-                    `,
-                  }}
-                />
               </div>
 
               {/* INFO */}
-              <div className="mt-7 px-2">
-                <div
+              <div className="relative z-20">
+                <h3
                   className="
-                    mb-3
-                    flex
-                    items-center
-                    justify-between
-                    gap-4
+                    max-w-[280px]
+                    text-[1.9rem]
+                    font-medium
+                    leading-[1]
+                    tracking-[-0.05em]
+                    text-[#111]
                   "
                 >
-                  <p
-                    className="
-                      text-[11px]
-                      uppercase
-                      tracking-[0.28em]
-                      text-[#8b8b8b]
-                    "
-                  >
-                    {product.category}
-                  </p>
+                  {product.name}
+                </h3>
 
-                  <span
-                    className="
-                      text-[0.95rem]
-                      text-[#666]
-                    "
-                  >
-                    {product.price}
-                  </span>
-                </div>
-
-                <div
+                <p
                   className="
-                    flex
-                    items-end
-                    justify-between
-                    gap-5
+                    mt-4
+                    max-w-[320px]
+                    text-[0.98rem]
+                    leading-relaxed
+                    text-[#666]
                   "
                 >
-                  <h3
-                    className="
-                      max-w-[240px]
-                      text-[1.8rem]
-                      font-medium
-                      leading-[1]
-                      tracking-[-0.05em]
-                      text-[#111]
-                    "
-                  >
-                    {product.name}
-                  </h3>
+                  Botanical skincare crafted to
+                  transform your daily routine into
+                  a calming self-care ritual.
+                </p>
 
-                  <motion.button
-                    whileHover={{
-                      scale: 1.04,
-                    }}
-                    whileTap={{
-                      scale: 0.98,
-                    }}
-                    className="
-                      rounded-full
-                      border
-                      border-[#ddd5ca]
-                      bg-white/40
-                      px-5
-                      py-3
-                      text-sm
-                      text-[#222]
-                      opacity-0
-                      backdrop-blur-xl
-                      transition-all
-                      duration-500
-                      group-hover:opacity-100
-                    "
-                  >
-                    View Ritual
-                  </motion.button>
-                </div>
+                {/* BUTTON */}
+                <motion.button
+                  whileHover={{
+                    scale: 1.03,
+                  }}
+                  whileTap={{
+                    scale: 0.98,
+                  }}
+                  className="
+                    mt-7
+                    rounded-full
+                    border
+                    border-[#ddd5ca]
+                    bg-white/35
+                    px-5
+                    py-3
+                    text-sm
+                    text-[#222]
+                    backdrop-blur-xl
+                    transition-all
+                    duration-500
+                    hover:bg-white/55
+                  "
+                >
+                  View Ritual
+                </motion.button>
               </div>
-            </motion.div>
-          );
-        })}
+
+              {/* HOVER SHINE */}
+              <div
+                className="
+                  absolute
+                  inset-0
+                  rounded-[40px]
+                  opacity-0
+                  transition-all
+                  duration-700
+                  group-hover:opacity-100
+                "
+                style={{
+                  background: `
+                    radial-gradient(
+                      circle at top,
+                      rgba(255,255,255,0.28),
+                      transparent 60%
+                    )
+                  `,
+                }}
+              />
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
