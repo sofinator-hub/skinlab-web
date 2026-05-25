@@ -371,7 +371,6 @@ export default function ProductsShowcase() {
                     hover:bg-white/55
                   "
                 >
-                  View Ritual
                 </motion.button>
               </div>
 
