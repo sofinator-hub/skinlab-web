@@ -1,0 +1,335 @@
+@import "tailwindcss";
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+  --background: #f6f3ee;
+  --foreground: #111111;
+
+  --cream: #ece7df;
+  --warm: #e2ddd5;
+
+  --sage: #a8b59b;
+  --olive: #7f8c74;
+  --forest: #5d6b4f;
+
+  --glass: rgba(255, 255, 255, 0.45);
+
+  --shadow-soft: 0px 20px 60px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0px 30px 80px rgba(0, 0, 0, 0.12);
+
+  --radius-xl: 32px;
+}
+
+/* =========================================================
+   TAILWIND THEME
+========================================================= */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* =========================================================
+   BODY / GLOBAL BACKGROUND
+========================================================= */
+
+body {
+  background-color: var(--background);
+
+  background-image:
+    url("/images/fondo_beige.webp");
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  background-attachment: fixed;
+
+  color: var(--foreground);
+
+  overflow-x: hidden;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+  font-weight: 500;
+}
+
+p {
+  line-height: 1.7;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+
+  font: inherit;
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================================================
+   IMAGES
+========================================================= */
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.max-container {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.section-padding {
+  padding-inline: 80px;
+}
+
+/* =========================================================
+   GLASSMORPHISM
+========================================================= */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.42);
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  box-shadow: var(--shadow-soft);
+}
+
+/* =========================================================
+   SHADOWS
+========================================================= */
+
+.soft-shadow {
+  box-shadow: var(--shadow-soft);
+}
+
+.medium-shadow {
+  box-shadow: var(--shadow-medium);
+}
+
+/* =========================================================
+   TEXT EFFECTS
+========================================================= */
+
+.text-gradient {
+  background: linear-gradient(
+    to right,
+    var(--forest),
+    var(--sage)
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================
+   BACKGROUND LIGHTS
+========================================================= */
+
+.bg-light-green {
+  background: radial-gradient(
+    circle,
+    rgba(168, 181, 155, 0.35) 0%,
+    rgba(168, 181, 155, 0) 70%
+  );
+}
+
+.bg-light-cream {
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card-hover {
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0px 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================================
+   BUTTON STYLES
+========================================================= */
+
+.primary-button {
+  background: #111111;
+  color: white;
+
+  border-radius: 999px;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.primary-button:hover {
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+
+.secondary-button {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  background: rgba(255, 255, 255, 0.6);
+
+  backdrop-filter: blur(20px);
+
+  border-radius: 999px;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.secondary-button:hover {
+  background: rgba(255, 255, 255, 0.9);
+
+  transform: scale(1.03);
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ece7df;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5beb5;
+
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa198;
+}
+
+/* =========================================================
+   TEXT SELECTION
+========================================================= */
+
+::selection {
+  background: rgba(168, 181, 155, 0.45);
+  color: #111111;
+}
+
+/* =========================================================
+   NOISE TEXTURE
+========================================================= */
+
+.noise {
+  position: relative;
+}
+
+.noise::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.03;
+
+  pointer-events: none;
+
+  background-image:
+    url("https://grainy-gradients.vercel.app/noise.svg");
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1200px) {
+  .section-padding {
+    padding-inline: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .section-padding {
+    padding-inline: 20px;
+  }
+}
