@@ -11,6 +11,8 @@ const products = [
     price: "$48",
     image: "/images/serum1.webp",
     glow: "rgba(168,181,155,0.30)",
+    description:
+      "Lightweight hydration designed for tired and stressed skin.",
   },
 
   {
@@ -20,6 +22,8 @@ const products = [
     price: "$52",
     image: "/images/serum2.webp",
     glow: "rgba(175,207,211,0.30)",
+    description:
+      "A calming formula inspired by botanical barrier recovery.",
   },
 
   {
@@ -29,6 +33,8 @@ const products = [
     price: "$64",
     image: "/images/serum3.webp",
     glow: "rgba(198,162,127,0.30)",
+    description:
+      "Deep overnight nourishment with soft mineral textures.",
   },
 
   {
@@ -38,6 +44,8 @@ const products = [
     price: "$58",
     image: "/images/serum4.webp",
     glow: "rgba(168,181,155,0.30)",
+    description:
+      "Natural radiance with lightweight botanical oils.",
   },
 
   {
@@ -47,6 +55,8 @@ const products = [
     price: "$42",
     image: "/images/serum5.webp",
     glow: "rgba(175,207,211,0.30)",
+    description:
+      "Refreshing hydration inspired by crystal water reflections.",
   },
 
   {
@@ -56,6 +66,8 @@ const products = [
     price: "$55",
     image: "/images/serum6.webp",
     glow: "rgba(198,162,127,0.30)",
+    description:
+      "Soft moisture recovery with warm earthy ingredients.",
   },
 ];
 
@@ -90,12 +102,12 @@ export default function ProductsShowcase() {
           mb-20
           grid
           gap-10
-          lg:grid-cols-[1.2fr_0.8fr]
+          lg:grid-cols-[1.1fr_0.9fr]
           lg:items-end
         "
       >
         {/* LEFT */}
-        <div className="max-w-[760px]">
+        <div className="max-w-[650px]">
           <div
             className="
               mb-6
@@ -115,9 +127,9 @@ export default function ProductsShowcase() {
 
             <span
               className="
-                text-[11px]
+                text-[10px]
                 uppercase
-                tracking-[0.25em]
+                tracking-[0.28em]
                 text-[#777]
               "
             >
@@ -127,37 +139,33 @@ export default function ProductsShowcase() {
 
           <h2
             className="
-              max-w-[820px]
-              text-[3.2rem]
+              max-w-[620px]
+              text-[3rem]
               font-semibold
-              leading-[0.9]
+              leading-[0.88]
               tracking-[-0.08em]
               text-[#111]
-              lg:text-[4.8rem]
+              lg:text-[3.8rem]
             "
           >
             Skincare designed
-            <span className="text-[#9aa88e]">
-              {" "}
-              as ritual.
-            </span>
+            for slower moments.
           </h2>
         </div>
 
         {/* RIGHT */}
-        <div className="lg:pl-16">
+        <div className="lg:pl-10">
           <p
             className="
-              max-w-[420px]
-              text-[1.02rem]
-              leading-relaxed
+              max-w-[340px]
+              text-[0.92rem]
+              leading-[1.9]
               text-[#666]
             "
           >
             Thoughtfully crafted botanical formulas
-            designed to transform skincare into a
-            calm sensory experience inspired by
-            modern wellness rituals.
+            inspired by calm textures, hydration and
+            modern self-care experiences.
           </p>
         </div>
       </div>
@@ -166,7 +174,8 @@ export default function ProductsShowcase() {
       <div
         className="
           grid
-          gap-10
+          gap-x-10
+          gap-y-14
           md:grid-cols-2
           xl:grid-cols-3
         "
@@ -176,7 +185,7 @@ export default function ProductsShowcase() {
             key={product.id}
             initial={{
               opacity: 0,
-              y: 60,
+              y: 50,
             }}
             whileInView={{
               opacity: 1,
@@ -192,12 +201,17 @@ export default function ProductsShowcase() {
             whileHover={{
               y: -8,
             }}
-            className="group relative"
+            className={`
+              group
+              relative
+
+              ${index % 2 === 0 ? "mt-0" : "mt-8"}
+            `}
           >
             {/* GLOW */}
             <motion.div
               animate={{
-                opacity: [0.35, 0.55, 0.35],
+                opacity: [0.3, 0.5, 0.3],
               }}
               transition={{
                 repeat: Infinity,
@@ -208,8 +222,8 @@ export default function ProductsShowcase() {
                 left-1/2
                 top-[35%]
                 z-0
-                h-[260px]
-                w-[260px]
+                h-[240px]
+                w-[240px]
                 -translate-x-1/2
                 rounded-full
                 blur-[90px]
@@ -225,65 +239,47 @@ export default function ProductsShowcase() {
                 relative
                 z-10
                 flex
-                h-[620px]
+                h-[540px]
                 flex-col
-                justify-between
                 overflow-hidden
-                rounded-[40px]
+                rounded-[38px]
                 border
-                border-white/35
-                bg-white/[0.18]
-                p-8
+                border-white/30
+                bg-white/[0.16]
+                p-7
                 backdrop-blur-[18px]
                 transition-all
                 duration-700
               "
             >
-              {/* LIGHT OVERLAY */}
+              {/* LIGHT */}
               <div
                 className="
                   absolute
                   inset-0
-                  rounded-[40px]
+                  rounded-[38px]
                   bg-gradient-to-b
-                  from-white/35
+                  from-white/30
                   to-transparent
                   opacity-50
                 "
               />
 
               {/* CATEGORY */}
-              <div
-                className="
-                  relative
-                  z-20
-                  flex
-                  items-center
-                  justify-between
-                "
-              >
+              <div className="relative z-20">
                 <p
                   className="
-                    text-[11px]
+                    text-[10px]
                     uppercase
-                    tracking-[0.28em]
+                    tracking-[0.30em]
                     text-[#888]
                   "
                 >
                   {product.category}
                 </p>
-
-                <span
-                  className="
-                    text-[0.95rem]
-                    text-[#666]
-                  "
-                >
-                  {product.price}
-                </span>
               </div>
 
-              {/* PRODUCT IMAGE */}
+              {/* PRODUCT */}
               <div
                 className="
                   relative
@@ -292,8 +288,22 @@ export default function ProductsShowcase() {
                   flex-1
                   items-center
                   justify-center
+                  mb-8
                 "
               >
+                {/* SHADOW BASE */}
+                <div
+                  className="
+                    absolute
+                    bottom-[16%]
+                    h-[30px]
+                    w-[180px]
+                    rounded-full
+                    bg-black/10
+                    blur-[22px]
+                  "
+                />
+
                 <motion.div
                   whileHover={{
                     scale: 1.04,
@@ -310,9 +320,9 @@ export default function ProductsShowcase() {
                     height={600}
                     quality={100}
                     className="
-                      w-[280px]
+                      w-[250px]
                       object-contain
-                      drop-shadow-[0_30px_45px_rgba(0,0,0,0.12)]
+                      drop-shadow-[0_40px_60px_rgba(0,0,0,0.18)]
                     "
                   />
                 </motion.div>
@@ -322,10 +332,10 @@ export default function ProductsShowcase() {
               <div className="relative z-20">
                 <h3
                   className="
-                    max-w-[280px]
-                    text-[1.9rem]
+                    max-w-[240px]
+                    text-[1.45rem]
                     font-medium
-                    leading-[1]
+                    leading-[1.05]
                     tracking-[-0.05em]
                     text-[#111]
                   "
@@ -336,42 +346,48 @@ export default function ProductsShowcase() {
                 <p
                   className="
                     mt-4
-                    max-w-[320px]
-                    text-[0.98rem]
-                    leading-relaxed
+                    max-w-[290px]
+                    text-[0.88rem]
+                    leading-[1.8]
                     text-[#666]
                   "
                 >
-                  Botanical skincare crafted to
-                  transform your daily routine into
-                  a calming self-care ritual.
+                  {product.description}
                 </p>
 
-                {/* BUTTON */}
-                <motion.button
-                  whileHover={{
-                    scale: 1.03,
-                  }}
-                  whileTap={{
-                    scale: 0.98,
-                  }}
+                {/* BOTTOM */}
+                <div
                   className="
-                    mt-7
-                    rounded-full
-                    border
-                    border-[#ddd5ca]
-                    bg-white/35
-                    px-5
-                    py-3
-                    text-sm
-                    text-[#222]
-                    backdrop-blur-xl
-                    transition-all
-                    duration-500
-                    hover:bg-white/55
+                    mt-8
+                    flex
+                    items-center
+                    justify-between
                   "
                 >
-                </motion.button>
+                  <span
+                    className="
+                      text-[1rem]
+                      tracking-[-0.03em]
+                      text-[#222]
+                    "
+                  >
+                    {product.price}
+                  </span>
+
+                  <motion.button
+                    whileHover={{
+                      x: 3,
+                    }}
+                    className="
+                      text-[11px]
+                      uppercase
+                      tracking-[0.24em]
+                      text-[#555]
+                    "
+                  >
+                    Explore →
+                  </motion.button>
+                </div>
               </div>
 
               {/* HOVER SHINE */}
@@ -379,7 +395,7 @@ export default function ProductsShowcase() {
                 className="
                   absolute
                   inset-0
-                  rounded-[40px]
+                  rounded-[38px]
                   opacity-0
                   transition-all
                   duration-700
@@ -389,7 +405,7 @@ export default function ProductsShowcase() {
                   background: `
                     radial-gradient(
                       circle at top,
-                      rgba(255,255,255,0.28),
+                      rgba(255,255,255,0.24),
                       transparent 60%
                     )
                   `,
