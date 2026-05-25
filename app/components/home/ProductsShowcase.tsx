@@ -220,7 +220,7 @@ export default function ProductsShowcase() {
                 relative
                 z-10
                 flex
-                h-[480px]
+                h-[460px]
                 flex-col
                 overflow-hidden
                 rounded-[38px]
@@ -300,17 +300,17 @@ export default function ProductsShowcase() {
                   relative
                   z-20
                   flex
-                  items-end
-                  justify-between
-                  gap-6
+                  flex-col
+                  items-center
+                  text-center
                 "
               >
                 <h3
                   className="
-                    max-w-[200px]
-                    text-[1.3rem]
+                    max-w-[240px]
+                    text-[1.35rem]
                     font-medium
-                    leading-[1.05]
+                    leading-[1.1]
                     tracking-[-0.05em]
                     text-[#111]
                   "
@@ -320,10 +320,10 @@ export default function ProductsShowcase() {
 
                 <span
                   className="
-                    text-[1.05rem]
+                    mt-4
+                    text-[1.15rem]
                     tracking-[-0.04em]
                     text-[#222]
-                    whitespace-nowrap
                   "
                 >
                   {product.price}
