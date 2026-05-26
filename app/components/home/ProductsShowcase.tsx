@@ -263,11 +263,11 @@ export default function ProductsShowcase() {
                   hover:bg-white/60
                 "
               >
-                <Plus
-                  size={18}
-                  className="text-[#7C8B68]"
-                  strokeWidth={2}
-                />
+              <Plus
+  size={18}
+  color="#6a8449"
+  strokeWidth={2}
+/>
               </motion.button>
 
               {/* PRODUCT */}
