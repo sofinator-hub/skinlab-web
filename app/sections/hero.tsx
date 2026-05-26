@@ -8,6 +8,7 @@ import {
   Leaf,
   Waves,
   Mountain,
+  Menu,
 } from "lucide-react";
 
 const moods = [
@@ -23,7 +24,7 @@ const moods = [
     title: "Ciencia\n para una nueva era del skincare.",
 
     description:
-      "experiencia de skincare botánico",
+      "Experiencia de skincare botánico inspirada en naturaleza, calma y bienestar sensorial.",
 
     accent: "#7C8B68",
 
@@ -44,10 +45,10 @@ const moods = [
 
     label: "Hydration Ritual",
 
-    title: "Hidratación pura\n para un piel agotada.",
+    title: "Hidratación pura\n para una piel agotada.",
 
     description:
-      "Inspirado en el reflejo de agua.",
+      "Inspirado en el reflejo del agua y la hidratación profunda.",
 
     accent: "#9ECED7",
 
@@ -68,10 +69,10 @@ const moods = [
 
     label: "Earth Minerals",
 
-    title: "Belleza mineral\n calma profunda.",
+    title: "Belleza mineral\n y calma profunda.",
 
     description:
-      "tonos calidos minerales.",
+      "Texturas cálidas inspiradas en minerales y naturaleza.",
 
     accent: "#C6A27F",
 
@@ -96,7 +97,7 @@ export default function Hero() {
         bg-transparent
       "
     >
-      {/* COLOR ATMOSPHERE */}
+      {/* ATMOSPHERE */}
       <motion.div
         animate={{
           background: `
@@ -156,7 +157,7 @@ export default function Hero() {
         }}
       />
 
-      {/* BIG TEXT */}
+      {/* HUGE EDEN */}
       <motion.div
         animate={{
           color: active.accent,
@@ -169,6 +170,7 @@ export default function Hero() {
           left-1/2
           top-1/2
           z-[2]
+          hidden
           -translate-x-1/2
           -translate-y-1/2
           text-[18vw]
@@ -176,6 +178,7 @@ export default function Hero() {
           tracking-[-0.08em]
           opacity-[0.04]
           select-none
+          lg:block
         "
       >
         EDEN
@@ -194,10 +197,12 @@ export default function Hero() {
           right-[-220px]
           top-[-120px]
           z-[1]
-          h-[900px]
-          w-[900px]
+          h-[700px]
+          w-[700px]
           rounded-full
           blur-[220px]
+          lg:h-[900px]
+          lg:w-[900px]
         "
       />
 
@@ -209,21 +214,24 @@ export default function Hero() {
           flex
           items-center
           justify-between
-          px-8
-          py-8
+          px-6
+          py-7
           lg:px-16
         "
       >
+        {/* LOGO */}
         <h1
           className="
-            text-[2rem]
+            text-[1.8rem]
             tracking-[-0.08em]
             text-[#4f5c42]
+            lg:text-[2rem]
           "
         >
           EDEN
         </h1>
 
+        {/* DESKTOP NAV */}
         <nav
           className="
             hidden
@@ -241,6 +249,28 @@ export default function Hero() {
           <a href="#">Studio</a>
           <a href="#">Contact</a>
         </nav>
+
+        {/* MOBILE MENU */}
+        <button
+          className="
+            flex
+            h-11
+            w-11
+            items-center
+            justify-center
+            rounded-full
+            border
+            border-white/30
+            bg-white/25
+            backdrop-blur-xl
+            lg:hidden
+          "
+        >
+          <Menu
+            size={18}
+            className="text-[#444]"
+          />
+        </button>
       </header>
 
       {/* HERO */}
@@ -252,13 +282,13 @@ export default function Hero() {
           min-h-[88vh]
           items-center
           justify-center
-          px-8
-          pb-10
-          pt-6
+          px-6
+          pb-12
+          pt-4
           lg:px-16
         "
       >
-        {/* MODEL */}
+        {/* MODEL AREA */}
         <div
           className="
             absolute
@@ -272,7 +302,7 @@ export default function Hero() {
           {/* PARTICLES */}
           <motion.div
             animate={{
-              opacity: [0.25, 0.5, 0.25],
+              opacity: [0.2, 0.45, 0.2],
             }}
             transition={{
               repeat: Infinity,
@@ -289,7 +319,7 @@ export default function Hero() {
             }}
           />
 
-          {/* MODEL WRAPPER */}
+          {/* MODEL */}
           <AnimatePresence mode="wait">
             <motion.div
               key={active.id}
@@ -312,10 +342,11 @@ export default function Hero() {
                 z-20
                 flex
                 items-center
-                translate-x-[80px]
+                justify-center
+                lg:translate-x-[80px]
               "
             >
-              {/* MODEL GLOW */}
+              {/* GLOW */}
               <motion.div
                 animate={{
                   backgroundColor: active.glow,
@@ -325,15 +356,17 @@ export default function Hero() {
                 }}
                 className="
                   absolute
-                  h-[520px]
-                  w-[520px]
+                  h-[300px]
+                  w-[300px]
                   rounded-full
-                  blur-[140px]
+                  blur-[120px]
                   opacity-70
+                  lg:h-[520px]
+                  lg:w-[520px]
                 "
               />
 
-              {/* MODEL */}
+              {/* IMAGE */}
               <motion.div
                 animate={{
                   y: [0, -10, 0],
@@ -354,11 +387,13 @@ export default function Hero() {
                   className="
                     relative
                     z-20
-                    h-[90vh]
+                    h-[54vh]
                     w-auto
                     object-contain
                     mix-blend-multiply
                     opacity-[0.97]
+                    sm:h-[68vh]
+                    lg:h-[90vh]
                   "
                 />
               </motion.div>
@@ -373,27 +408,37 @@ export default function Hero() {
             z-40
             flex
             w-full
-            items-center
-            justify-between
+            flex-col
+            justify-end
+            gap-8
+            lg:flex-row
+            lg:items-center
+            lg:justify-between
           "
         >
-          {/* LEFT CONTENT */}
+          {/* LEFT SIDE */}
           <div
             className="
-              max-w-[580px]
+              relative
+              z-40
+              mt-[42vh]
+              max-w-[620px]
+              sm:mt-[48vh]
+              lg:mt-0
             "
           >
-            {/* MAIN GLASS CARD */}
+            {/* GLASS CARD */}
             <div
               className="
                 relative
                 overflow-hidden
-                rounded-[42px]
+                rounded-[34px]
                 border
                 border-white/30
-                bg-white/[0.20]
-                p-8
+                bg-white/[0.18]
+                p-6
                 backdrop-blur-[24px]
+                lg:rounded-[42px]
                 lg:p-10
               "
             >
@@ -416,16 +461,18 @@ export default function Hero() {
                     borderColor: active.accent,
                   }}
                   className="
-                    mb-8
+                    mb-6
                     inline-flex
                     items-center
                     gap-3
                     rounded-full
                     border
                     bg-white/50
-                    px-5
-                    py-3
+                    px-4
+                    py-2.5
                     backdrop-blur-xl
+                    lg:px-5
+                    lg:py-3
                   "
                 >
                   <motion.div
@@ -442,10 +489,11 @@ export default function Hero() {
 
                   <span
                     className="
-                      text-[10px]
+                      text-[9px]
                       uppercase
-                      tracking-[0.25em]
+                      tracking-[0.22em]
                       text-[#666]
+                      lg:text-[10px]
                     "
                   >
                     Immersive Botanical Experience
@@ -475,10 +523,11 @@ export default function Hero() {
                       className="
                         whitespace-pre-line
                         font-serif
-                        text-[3.8rem]
-                        leading-[0.95]
-                        tracking-[-0.06em]
+                        text-[2.8rem]
+                        leading-[0.92]
+                        tracking-[-0.07em]
                         text-[#1b1b1b]
+                        sm:text-[4rem]
                         lg:text-[5.2rem]
                       "
                     >
@@ -487,11 +536,14 @@ export default function Hero() {
 
                     <p
                       className="
-                        mt-7
+                        mt-5
                         max-w-[470px]
-                        text-[1rem]
-                        leading-[1.9]
+                        text-[0.95rem]
+                        leading-[1.8]
                         text-[#5f5f5f]
+                        lg:mt-7
+                        lg:text-[1rem]
+                        lg:leading-[1.9]
                       "
                     >
                       {active.description}
@@ -504,16 +556,21 @@ export default function Hero() {
             {/* MOOD BAR */}
             <div
               className="
-                mt-8
+                mt-6
                 flex
-                items-center
                 gap-4
-                rounded-[36px]
+                overflow-x-auto
+                rounded-[30px]
                 border
                 border-white/30
-                bg-white/[0.18]
-                p-4
+                bg-white/[0.16]
+                p-3
                 backdrop-blur-[20px]
+                scrollbar-hide
+                lg:mt-8
+                lg:overflow-visible
+                lg:rounded-[36px]
+                lg:p-4
               "
             >
               {moods.map((mood) => {
@@ -531,13 +588,14 @@ export default function Hero() {
                     }}
                     className="
                       relative
-                      flex-1
+                      min-w-[220px]
                       overflow-hidden
-                      rounded-[26px]
-                      px-5
+                      rounded-[24px]
+                      px-4
                       py-4
                       text-left
                       transition-all
+                      lg:flex-1
                     "
                     style={{
                       background:
@@ -573,11 +631,12 @@ export default function Hero() {
                     />
 
                     <div className="relative z-10 flex items-center gap-4">
+                      {/* ICON */}
                       <div
                         className="
                           flex
-                          h-12
-                          w-12
+                          h-11
+                          w-11
                           items-center
                           justify-center
                           rounded-full
@@ -587,17 +646,18 @@ export default function Hero() {
                         }}
                       >
                         <Icon
-                          size={22}
+                          size={20}
                           style={{
                             color: mood.accent,
                           }}
                         />
                       </div>
 
+                      {/* TEXT */}
                       <div>
                         <h3
                           className="
-                            text-[1rem]
+                            text-[0.95rem]
                             font-medium
                             text-[#1f1f1f]
                           "
@@ -608,7 +668,7 @@ export default function Hero() {
                         <p
                           className="
                             mt-1
-                            text-[0.82rem]
+                            text-[0.78rem]
                             text-[#6d6d6d]
                           "
                         >
@@ -639,7 +699,7 @@ export default function Hero() {
             className="
               relative
               z-40
-              mr-8
+              mx-auto
               hidden
               w-[240px]
               overflow-hidden
@@ -667,6 +727,7 @@ export default function Hero() {
               "
             />
 
+            {/* PRODUCT */}
             <motion.div
               animate={{
                 y: [0, -8, 0],
@@ -695,6 +756,7 @@ export default function Hero() {
               />
             </motion.div>
 
+            {/* TEXT */}
             <div
               className="
                 relative
