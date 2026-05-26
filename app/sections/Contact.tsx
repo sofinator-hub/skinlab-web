@@ -1,490 +1,327 @@
 "use client";
-
-import { motion } from "framer-motion";
+ 
 import {
   Camera,
+  Music2,
+  PinIcon,
   Mail,
-  ArrowUpRight,
+  ArrowRight,
 } from "lucide-react";
 
 export default function Contact() {
   return (
-    <section
+    <footer
       className="
         relative
         z-20
+        mt-24
         overflow-hidden
+        border-t
+        border-[#ddd6cc]
+        bg-[#f8f4ee]/70
         px-8
-        pb-24
-        pt-36
+        py-14
+        backdrop-blur-xl
         lg:px-16
       "
     >
-      {/* AMBIENT GLOW */}
+      {/* TOP CONTENT */}
       <div
-        className="
-          pointer-events-none
-          absolute
-          bottom-[-200px]
-          left-1/2
-          h-[700px]
-          w-[700px]
-          -translate-x-1/2
-          rounded-full
-          bg-[#d9e3d0]/20
-          blur-[140px]
-        "
-      />
-
-      {/* TOP LINE */}
-      <div
-        className="
-          mb-20
-          h-px
-          w-full
-          bg-gradient-to-r
-          from-transparent
-          via-[#d8d0c5]
-          to-transparent
-        "
-      />
-
-      <div
-        className="
-          relative
-          z-20
+        className=" 
           grid
           gap-14
-          lg:grid-cols-[1.2fr_0.8fr]
+          lg:grid-cols-[1.2fr_2fr_1.1fr]
         "
       >
         {/* LEFT */}
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.9,
-          }}
-          viewport={{
-            once: true,
-          }}
-        >
-          {/* LABEL */}
-          <div
-            className="
-              mb-6
-              inline-flex
-              items-center
-              gap-3
-              rounded-full
-              border
-              border-[#ddd4c8]
-              bg-white/30
-              px-5
-              py-3
-              backdrop-blur-xl
-            "
-          >
-            <div className="h-2 w-2 rounded-full bg-[#7C8B68]" />
-
-            <span
-              className="
-                text-[10px]
-                uppercase
-                tracking-[0.28em]
-                text-[#777]
-              "
-            >
-              Contact • EDEN
-            </span>
-          </div>
-
-          {/* TITLE */}
+        <div>
+          {/* LOGO */}
           <h2
             className="
-              max-w-[760px]
-              text-[3.5rem]
-              font-semibold
-              leading-[0.9]
+              text-[2.5rem]
+              font-medium
               tracking-[-0.08em]
-              text-[#151515]
-              lg:text-[6rem]
+              text-[#1a1a1a]
             "
           >
-            Tu piel merece
-            <br />
-            una experiencia
-            <br />
-            más consciente.
+            EDEN
           </h2>
 
           {/* DESCRIPTION */}
           <p
             className="
-              mt-8
-              max-w-[620px]
-              text-[1rem]
-              leading-[2]
+              mt-4
+              max-w-[260px]
+              text-[0.95rem]
+              leading-[1.8]
               text-[#666]
-              lg:text-[1.05rem]
-            "
+            " 
           >
-            EDEN combina naturaleza,
-            tecnología y bienestar sensorial
-            para crear una nueva experiencia
-            de skincare futurista y premium.
+            Skincare botánico inspirado en
+            la naturaleza. Hecho para ti.
           </p>
-        </motion.div>
 
-        {/* RIGHT CARD */}
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.9,
-            delay: 0.1,
-          }}
-          viewport={{
-            once: true,
-          }}
-          className="
-            relative
-          "
-        >
-          {/* CARD */}
+          {/* SOCIALS */}
           <div
             className="
-              relative
-              overflow-hidden
-              rounded-[42px]
-              border
-              border-white/30
-              bg-white/[0.16]
-              p-8
-              backdrop-blur-[20px]
+              mt-7
+              flex
+              items-center
+              gap-4
             "
           >
-            {/* LIGHT */}
+            {[
+              Camera,
+              Music2,
+              PinIcon,
+              Mail,
+            ].map((Icon, index) => (
+              <button
+                key={index}
+                className="
+                  flex
+                  h-10
+                  w-10
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-[#ddd6cc]
+                  bg-white/70
+                  text-[#444]
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:bg-[#ede6da]
+                "
+              >
+                <Icon size={16} />
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* CENTER LINKS */}
+        <div
+          className="
+            grid
+            gap-10
+            sm:grid-cols-3
+          "
+        >
+          {/* COLUMN 1 */}
+          <div>
+            <h3
+              className="
+                mb-5
+                text-[0.95rem]
+                font-medium
+                text-[#171717]
+              "
+            >
+              Tienda
+            </h3>
+
             <div
               className="
-                absolute
-                inset-0
-                rounded-[42px]
-                bg-gradient-to-b
-                from-white/30
-                to-transparent
-                opacity-60
+                flex
+                flex-col
+                gap-3
+              "
+            >
+              {[
+                "Todos los productos",
+                "Kits y rutinas",
+                "Novedades",
+                "Bestsellers",
+              ].map((item) => (
+                <a
+                  key={item}
+                  href="#"
+                  className="
+                    text-[0.9rem]
+                    text-[#666]
+                    transition
+                    hover:text-[#111]
+                  "
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* COLUMN 2 */}
+          <div>
+            <h3
+              className="
+                mb-5
+                text-[0.95rem]
+                font-medium
+                text-[#171717]
+              "
+            >
+              Marca
+            </h3>
+
+            <div
+              className="
+                flex
+                flex-col
+                gap-3
+              "
+            >
+              {[
+                "Sobre nosotros",
+                "Ingredientes",
+                "Sostenibilidad",
+                "Blog",
+              ].map((item) => (
+                <a
+                  key={item}
+                  href="#"
+                  className="
+                    text-[0.9rem]
+                    text-[#666]
+                    transition
+                    hover:text-[#111]
+                  "
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* COLUMN 3 */}
+          <div>
+            <h3
+              className="
+                mb-5
+                text-[0.95rem]
+                font-medium
+                text-[#171717]
+              "
+            >
+              Ayuda
+            </h3>
+
+            <div
+              className="
+                flex
+                flex-col
+                gap-3
+              "
+            >
+              {[
+                "Preguntas frecuentes",
+                "Envíos y devoluciones",
+                "Contacto",
+                "Términos y condiciones",
+              ].map((item) => (
+                <a
+                  key={item}
+                  href="#"
+                  className="
+                    text-[0.9rem]
+                    text-[#666]
+                    transition
+                    hover:text-[#111]
+                  "
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT NEWSLETTER */}
+        <div>
+          <h3
+            className="
+              max-w-[240px]
+              text-[1rem]
+              leading-[1.7]
+              text-[#444]
+            "
+          >
+            Recibe 10% de descuento
+            en tu primera compra.
+          </h3>
+
+          {/* INPUT */}
+          <div
+            className="
+              mt-7
+              flex
+              items-center
+              overflow-hidden
+              rounded-full
+              border
+              border-[#ddd6cc]
+              bg-white/80
+              backdrop-blur-xl
+            "
+          >
+            <input
+              type="email"
+              placeholder="Tu correo electrónico"
+              className="
+                w-full
+                bg-transparent
+                px-5
+                py-4
+                text-[0.9rem]
+                text-[#222]
+                outline-none
+                placeholder:text-[#999]
               "
             />
 
-            {/* CONTENT */}
-            <div className="relative z-20">
-              {/* MINI TITLE */}
-              <span
-                className="
-                  text-[0.78rem]
-                  uppercase
-                  tracking-[0.26em]
-                  text-[#777]
-                "
-              >
-                Connect with EDEN
-              </span>
-
-              {/* BIG TEXT */}
-              <h3
-                className="
-                  mt-5
-                  text-[2rem]
-                  font-medium
-                  leading-[1]
-                  tracking-[-0.06em]
-                  text-[#171717]
-                "
-              >
-                Book your
-                <br />
-                next ritual.
-              </h3>
-
-              {/* LINKS */}
-              <div
-                className="
-                  mt-10
-                  flex
-                  flex-col
-                  gap-5
-                "
-              >
-                {/* INSTAGRAM */}
-                <a
-                  href="#"
-                  className="
-                    group
-                    flex
-                    items-center
-                    justify-between
-                    rounded-[24px]
-                    border
-                    border-white/30
-                    bg-white/25
-                    px-5
-                    py-5
-                    transition-all
-                    duration-500
-                    hover:bg-white/40
-                  "
-                >
-                  <div className="flex items-center gap-4">
-                    <div
-                      className="
-                        flex
-                        h-11
-                        w-11
-                        items-center
-                        justify-center
-                        rounded-full
-                        bg-[#efe7dc]
-                      "
-                    >
-                      <Camera
-                        size={18}
-                        className="text-[#222]"
-                      />
-                    </div>
-
-                    <div>
-                      <p
-                        className="
-                          text-[0.82rem]
-                          uppercase
-                          tracking-[0.2em]
-                          text-[#888]
-                        "
-                      >
-                        Instagram
-                      </p>
-
-                      <span
-                        className="
-                          text-[1rem]
-                          text-[#171717]
-                        "
-                      >
-                        @eden.skinlab
-                      </span>
-                    </div>
-                  </div>
-
-                  <ArrowUpRight
-                    size={18}
-                    className="
-                      text-[#555]
-                      transition-transform
-                      duration-500
-                      group-hover:translate-x-1
-                      group-hover:-translate-y-1
-                    "
-                  />
-                </a>
-
-                {/* EMAIL */}
-                <a
-                  href="mailto:contact@edenstudio.com"
-                  className="
-                    group
-                    flex
-                    items-center
-                    justify-between
-                    rounded-[24px]
-                    border
-                    border-white/30
-                    bg-white/25
-                    px-5
-                    py-5
-                    transition-all
-                    duration-500
-                    hover:bg-white/40
-                  "
-                >
-                  <div className="flex items-center gap-4">
-                    <div
-                      className="
-                        flex
-                        h-11
-                        w-11
-                        items-center
-                        justify-center
-                        rounded-full
-                        bg-[#dce7ea]
-                      "
-                    >
-                      <Mail
-                        size={18}
-                        className="text-[#222]"
-                      />
-                    </div>
-
-                    <div>
-                      <p
-                        className="
-                          text-[0.82rem]
-                          uppercase
-                          tracking-[0.2em]
-                          text-[#888]
-                        "
-                      >
-                        Email
-                      </p>
-
-                      <span
-                        className="
-                          text-[1rem]
-                          text-[#171717]
-                        "
-                      >
-                        contact@edenstudio.com
-                      </span>
-                    </div>
-                  </div>
-
-                  <ArrowUpRight
-                    size={18}
-                    className="
-                      text-[#555]
-                      transition-transform
-                      duration-500
-                      group-hover:translate-x-1
-                      group-hover:-translate-y-1
-                    "
-                  />
-                </a>
-              </div>
-
-              {/* BUTTON */}
-              <button
-                className="
-                  mt-10
-                  flex
-                  items-center
-                  gap-3
-                  rounded-full
-                  bg-[#171717]
-                  px-7
-                  py-4
-                  text-[0.95rem]
-                  text-white
-                  transition-all
-                  duration-500
-                  hover:scale-[1.02]
-                  hover:bg-[#2a2a2a]
-                "
-              >
-                Reservar experiencia
-
-                <ArrowUpRight size={18} />
-              </button>
-            </div>
+            <button
+              className="
+                flex
+                h-12
+                w-12
+                items-center
+                justify-center
+                rounded-full
+                bg-[#7C8B68]
+                text-white
+                transition-all
+                duration-300
+                hover:scale-105
+                hover:bg-[#6f7d5d]
+              "
+            >
+              <ArrowRight size={18} />
+            </button>
           </div>
-        </motion.div>
+        </div>
       </div>
 
-      {/* FOOTER */}
+      {/* BOTTOM */}
       <div
         className="
-          relative
-          z-20
-          mt-32
+          mt-14
           flex
           flex-col
           items-center
           justify-between
-          gap-10
+          gap-4
           border-t
-          border-[#ddd4c8]
-          pt-10
+          border-[#e4ddd2]
+          pt-6
+          text-[0.82rem]
+          text-[#888]
           lg:flex-row
         "
       >
-        {/* BRAND */}
-        <div>
-          <h3
-            className="
-              text-[2rem]
-              tracking-[-0.08em]
-              text-[#171717]
-            "
-          >
-            EDEN
-          </h3>
+        <p>© 2026 EDEN. Todos los derechos reservados.</p>
 
-          <p
-            className="
-              mt-2
-              text-[0.9rem]
-              tracking-[0.22em]
-              text-[#777]
-            "
-          >
-            Nature • Science • You
-          </p>
-        </div>
-
-        {/* NAV */}
-        <div
-          className="
-            flex
-            flex-wrap
-            items-center
-            justify-center
-            gap-8
-            text-[0.82rem]
-            uppercase
-            tracking-[0.22em]
-            text-[#777]
-          "
-        >
-          <a
-            href="#"
-            className="transition hover:text-[#171717]"
-          >
-            Products
-          </a>
-
-          <a
-            href="#"
-            className="transition hover:text-[#171717]"
-          >
-            Experiences
-          </a>
-
-          <a
-            href="#"
-            className="transition hover:text-[#171717]"
-          >
-            Studio
-          </a>
-
-          <a
-            href="#"
-            className="transition hover:text-[#171717]"
-          >
-            Contact
-          </a>
-        </div>
+        <p>Nature • Science • You</p>
       </div>
-    </section>
+    </footer>
   );
 }
