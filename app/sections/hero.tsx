@@ -20,10 +20,10 @@ const moods = [
 
     label: "Botanical Energy",
 
-    title: "Nature redesigned\nfor modern skin rituals.",
+    title: "Ciencia\n para una nueva era del skincare.",
 
     description:
-      "Immersive botanical skincare experiences inspired by living textures, organic light and cinematic botanical aesthetics.",
+      "experiencia de skincare botánico",
 
     accent: "#7C8B68",
 
@@ -44,10 +44,10 @@ const moods = [
 
     label: "Hydration Ritual",
 
-    title: "Pure hydration\nin cinematic motion.",
+    title: "Hidratación pura\n para un piel agotada.",
 
     description:
-      "Inspired by waterfalls, crystal reflections and fluid textures crafted for immersive wellness experiences.",
+      "Inspirado en el reflejo de agua.",
 
     accent: "#9ECED7",
 
@@ -68,10 +68,10 @@ const moods = [
 
     label: "Earth Minerals",
 
-    title: "Grounded beauty\nthrough texture and light.",
+    title: "Belleza mineral\n calma profunda.",
 
     description:
-      "Warm mineral tones, earthy elegance and soft atmospheric textures.",
+      "tonos calidos minerales.",
 
     accent: "#C6A27F",
 
