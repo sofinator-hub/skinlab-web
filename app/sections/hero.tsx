@@ -28,10 +28,7 @@ const moods = [
 
     accent: "#7C8B68",
 
-    glow: "rgba(124,139,104,0.60)",
-
-    particle:
-      "radial-gradient(circle, rgba(124,139,104,0.18) 1px, transparent 1px)",
+    glow: "rgba(124,139,104,0.45)",
 
     product: "/images/serum4.webp",
   },
@@ -52,10 +49,7 @@ const moods = [
 
     accent: "#9ECED7",
 
-    glow: "rgba(158,206,215,0.60)",
-
-    particle:
-      "radial-gradient(circle, rgba(158,206,215,0.18) 1px, transparent 1px)",
+    glow: "rgba(158,206,215,0.45)",
 
     product: "/images/serum5.webp",
   },
@@ -76,10 +70,7 @@ const moods = [
 
     accent: "#C6A27F",
 
-    glow: "rgba(198,162,127,0.58)",
-
-    particle:
-      "radial-gradient(circle, rgba(198,162,127,0.18) 1px, transparent 1px)",
+    glow: "rgba(198,162,127,0.45)",
 
     product: "/images/serum1.webp",
   },
@@ -97,7 +88,7 @@ export default function Hero() {
         bg-transparent
       "
     >
-      {/* ATMOSPHERE */}
+      {/* SOFT ATMOSPHERE */}
       <motion.div
         animate={{
           background: `
@@ -115,11 +106,12 @@ export default function Hero() {
           absolute
           inset-0
           z-[1]
-          mix-blend-overlay
+          opacity-70
+          lg:mix-blend-overlay
         "
       />
 
-      {/* SECONDARY LIGHT */}
+      {/* SECOND LIGHT */}
       <motion.div
         animate={{
           background: `
@@ -137,24 +129,10 @@ export default function Hero() {
           absolute
           inset-0
           z-[1]
-          opacity-40
-          blur-[100px]
+          opacity-30
+          blur-[60px]
+          lg:blur-[100px]
         "
-      />
-
-      {/* GRAIN */}
-      <div
-        className="
-          absolute
-          inset-0
-          z-[2]
-          opacity-[0.03]
-          mix-blend-multiply
-        "
-        style={{
-          backgroundImage:
-            "url('https://grainy-gradients.vercel.app/noise.svg')",
-        }}
       />
 
       {/* HUGE EDEN */}
@@ -197,12 +175,13 @@ export default function Hero() {
           right-[-220px]
           top-[-120px]
           z-[1]
-          h-[700px]
-          w-[700px]
+          h-[420px]
+          w-[420px]
           rounded-full
-          blur-[220px]
+          blur-[120px]
           lg:h-[900px]
           lg:w-[900px]
+          lg:blur-[220px]
         "
       />
 
@@ -262,7 +241,7 @@ export default function Hero() {
             border
             border-white/30
             bg-white/25
-            backdrop-blur-xl
+            backdrop-blur-md
             lg:hidden
           "
         >
@@ -279,12 +258,13 @@ export default function Hero() {
           relative
           z-20
           flex
-          min-h-[88vh]
+          min-h-[100svh]
           items-center
           justify-center
           px-6
           pb-12
           pt-4
+          lg:min-h-[88vh]
           lg:px-16
         "
       >
@@ -298,34 +278,14 @@ export default function Hero() {
             justify-center
             pointer-events-none
           "
-        >
-          {/* PARTICLES */}
-          <motion.div
-            animate={{
-              opacity: [0.2, 0.45, 0.2],
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 8,
-            }}
-            className="
-              absolute
-              inset-0
-              z-10
-            "
-            style={{
-              backgroundImage: active.particle,
-              backgroundSize: "30px 30px",
-            }}
-          />
-
+        > 
           {/* MODEL */}
           <AnimatePresence mode="wait">
             <motion.div
               key={active.id}
               initial={{
                 opacity: 0,
-                y: 30,
+                y: 20,
               }}
               animate={{
                 opacity: 1,
@@ -335,7 +295,7 @@ export default function Hero() {
                 opacity: 0,
               }}
               transition={{
-                duration: 0.8,
+                duration: 0.7,
               }}
               className="
                 relative
@@ -346,7 +306,7 @@ export default function Hero() {
                 lg:translate-x-[80px]
               "
             >
-              {/* GLOW */}
+              {/* MODEL GLOW */}
               <motion.div
                 animate={{
                   backgroundColor: active.glow,
@@ -356,20 +316,21 @@ export default function Hero() {
                 }}
                 className="
                   absolute
-                  h-[300px]
-                  w-[300px]
+                  h-[240px]
+                  w-[240px]
                   rounded-full
-                  blur-[120px]
-                  opacity-70
+                  blur-[80px]
+                  opacity-60
                   lg:h-[520px]
                   lg:w-[520px]
+                  lg:blur-[140px]
                 "
               />
 
               {/* IMAGE */}
               <motion.div
                 animate={{
-                  y: [0, -10, 0],
+                  y: [0, -8, 0],
                 }}
                 transition={{
                   repeat: Infinity,
@@ -387,7 +348,7 @@ export default function Hero() {
                   className="
                     relative
                     z-20
-                    h-[54vh]
+                    h-[58vh]
                     w-auto
                     object-contain
                     mix-blend-multiply
@@ -421,9 +382,9 @@ export default function Hero() {
             className="
               relative
               z-40
-              mt-[42vh]
+              mt-[50vh]
               max-w-[620px]
-              sm:mt-[48vh]
+              sm:mt-[54vh]
               lg:mt-0
             "
           >
@@ -432,23 +393,24 @@ export default function Hero() {
               className="
                 relative
                 overflow-hidden
-                rounded-[34px]
+                rounded-[28px]
                 border
                 border-white/30
-                bg-white/[0.18]
-                p-6
-                backdrop-blur-[24px]
+                bg-white/[0.16]
+                p-5
+                backdrop-blur-md
                 lg:rounded-[42px]
                 lg:p-10
+                lg:backdrop-blur-[24px]
               "
             >
-              {/* INNER LIGHT */}
+              {/* LIGHT */}
               <div
                 className="
                   absolute
                   inset-0
                   bg-gradient-to-b
-                  from-white/40
+                  from-white/35
                   to-transparent
                   opacity-60
                 "
@@ -461,18 +423,16 @@ export default function Hero() {
                     borderColor: active.accent,
                   }}
                   className="
-                    mb-6
+                    mb-5
                     inline-flex
                     items-center
                     gap-3
                     rounded-full
                     border
-                    bg-white/50
+                    bg-white/45
                     px-4
-                    py-2.5
-                    backdrop-blur-xl
-                    lg:px-5
-                    lg:py-3
+                    py-2
+                    backdrop-blur-sm
                   "
                 >
                   <motion.div
@@ -484,14 +444,14 @@ export default function Hero() {
                       repeat: Infinity,
                       duration: 2.5,
                     }}
-                    className="h-2.5 w-2.5 rounded-full"
+                    className="h-2 w-2 rounded-full"
                   />
 
                   <span
                     className="
-                      text-[9px]
+                      text-[8px]
                       uppercase
-                      tracking-[0.22em]
+                      tracking-[0.2em]
                       text-[#666]
                       lg:text-[10px]
                     "
@@ -506,7 +466,7 @@ export default function Hero() {
                     key={active.id}
                     initial={{
                       opacity: 0,
-                      y: 25,
+                      y: 20,
                     }}
                     animate={{
                       opacity: 1,
@@ -523,11 +483,11 @@ export default function Hero() {
                       className="
                         whitespace-pre-line
                         font-serif
-                        text-[2.8rem]
-                        leading-[0.92]
+                        text-[2.3rem]
+                        leading-[0.95]
                         tracking-[-0.07em]
                         text-[#1b1b1b]
-                        sm:text-[4rem]
+                        sm:text-[3.8rem]
                         lg:text-[5.2rem]
                       "
                     >
@@ -536,10 +496,10 @@ export default function Hero() {
 
                     <p
                       className="
-                        mt-5
+                        mt-4
                         max-w-[470px]
-                        text-[0.95rem]
-                        leading-[1.8]
+                        text-[0.92rem]
+                        leading-[1.7]
                         text-[#5f5f5f]
                         lg:mt-7
                         lg:text-[1rem]
@@ -556,21 +516,21 @@ export default function Hero() {
             {/* MOOD BAR */}
             <div
               className="
-                mt-6
+                mt-5
                 flex
-                gap-4
+                gap-3
                 overflow-x-auto
-                rounded-[30px]
+                rounded-[28px]
                 border
                 border-white/30
-                bg-white/[0.16]
+                bg-white/[0.14]
                 p-3
-                backdrop-blur-[20px]
+                backdrop-blur-md
                 scrollbar-hide
                 lg:mt-8
-                lg:overflow-visible
                 lg:rounded-[36px]
                 lg:p-4
+                lg:backdrop-blur-[20px]
               "
             >
               {moods.map((mood) => {
@@ -580,73 +540,46 @@ export default function Hero() {
                   <motion.button
                     key={mood.id}
                     onClick={() => setActive(mood)}
-                    whileHover={{
-                      y: -3,
-                    }}
                     whileTap={{
                       scale: 0.97,
                     }}
                     className="
                       relative
-                      min-w-[220px]
+                      min-w-[170px]
                       overflow-hidden
-                      rounded-[24px]
+                      rounded-[22px]
                       px-4
                       py-4
                       text-left
                       transition-all
-                      lg:flex-1
+                      lg:min-w-[220px]
                     "
                     style={{
                       background:
                         active.id === mood.id
-                          ? "rgba(255,255,255,0.55)"
+                          ? "rgba(255,255,255,0.50)"
                           : "transparent",
-
-                      boxShadow:
-                        active.id === mood.id
-                          ? `0 10px 35px ${mood.glow}`
-                          : "none",
                     }}
                   >
-                    {/* ACTIVE GLOW */}
-                    <motion.div
-                      animate={{
-                        opacity:
-                          active.id === mood.id ? 1 : 0,
-                      }}
-                      className="
-                        absolute
-                        inset-0
-                      "
-                      style={{
-                        background: `
-                          radial-gradient(
-                            circle at top left,
-                            ${mood.glow},
-                            transparent 75%
-                          )
-                        `,
-                      }}
-                    />
-
-                    <div className="relative z-10 flex items-center gap-4">
+                    <div className="flex items-center gap-3">
                       {/* ICON */}
                       <div
                         className="
                           flex
-                          h-11
-                          w-11
+                          h-9
+                          w-9
                           items-center
                           justify-center
                           rounded-full
+                          lg:h-11
+                          lg:w-11
                         "
                         style={{
                           background: `${mood.accent}20`,
                         }}
                       >
                         <Icon
-                          size={20}
+                          size={18}
                           style={{
                             color: mood.accent,
                           }}
@@ -657,7 +590,7 @@ export default function Hero() {
                       <div>
                         <h3
                           className="
-                            text-[0.95rem]
+                            text-[0.92rem]
                             font-medium
                             text-[#1f1f1f]
                           "
@@ -668,7 +601,7 @@ export default function Hero() {
                         <p
                           className="
                             mt-1
-                            text-[0.78rem]
+                            text-[0.75rem]
                             text-[#6d6d6d]
                           "
                         >
@@ -715,18 +648,6 @@ export default function Hero() {
               boxShadow: `0 20px 60px ${active.glow}`,
             }}
           >
-            {/* LIGHT */}
-            <div
-              className="
-                absolute
-                inset-0
-                bg-gradient-to-b
-                from-white/45
-                to-transparent
-                opacity-60
-              "
-            />
-
             {/* PRODUCT */}
             <motion.div
               animate={{
@@ -750,9 +671,7 @@ export default function Hero() {
                 width={160}
                 height={210}
                 quality={90}
-                className="
-                  object-contain
-                "
+                className="object-contain"
               />
             </motion.div>
 
