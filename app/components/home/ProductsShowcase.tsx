@@ -243,29 +243,29 @@ export default function ProductsShowcase() {
                 whileTap={{
                   scale: 0.94,
                 }}
-                className="
-                  absolute
-                  right-5
-                  top-5
-                  z-30
-                  flex
-                  h-11
-                  w-11
-                  items-center
-                  justify-center
-                  rounded-full
-                  border
-                  border-[#7C8B68]/20
-                  bg-[#7C8B68]/20
-                  backdrop-blur-xl
-                  transition-all
-                  duration-500
-                  hover:bg-white/60
-                "
+className="
+  absolute
+  right-5
+  top-5
+  z-30
+  flex
+  h-11
+  w-11
+  items-center
+  justify-center
+  rounded-full
+  border
+  border-[#7C8B68]/30
+  bg-[#7C8B68]/20
+  backdrop-blur-xl
+  transition-all
+  duration-500
+  hover:bg-[#7C8B68]/30
+"
               >
               <Plus
   size={18}
-  color="#e2e7db"
+  color="#749d3b"
   strokeWidth={2}
 />
               </motion.button>
