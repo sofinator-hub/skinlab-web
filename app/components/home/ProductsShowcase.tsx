@@ -255,8 +255,8 @@ export default function ProductsShowcase() {
                   justify-center
                   rounded-full
                   border
-                  border-white/40
-                  bg-white/40
+                  border-[#7C8B68]/20
+                  bg-[#7C8B68]/20
                   backdrop-blur-xl
                   transition-all
                   duration-500
@@ -265,7 +265,7 @@ export default function ProductsShowcase() {
               >
               <Plus
   size={18}
-  color="#6a8449"
+  color="#e2e7db"
   strokeWidth={2}
 />
               </motion.button>
