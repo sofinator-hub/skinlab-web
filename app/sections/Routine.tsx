@@ -20,7 +20,7 @@ const steps = [
 
     icon: Droplets,
 
-    image: "/images/producton4.webp",
+    image: "/images/serum7.webp",
 
     glow: "rgba(158,206,215,0.28)",
   },
@@ -35,7 +35,7 @@ const steps = [
 
     icon: Sparkles,
 
-    image: "/images/producton3.webp",
+    image: "/images/serum3.webp",
 
     glow: "rgba(124,139,104,0.28)",
   },
@@ -50,7 +50,7 @@ const steps = [
 
     icon: ShieldCheck,
 
-    image: "/images/producton6.webp",
+    image: "/images/serum8.webp",
 
     glow: "rgba(198,162,127,0.28)",
   },
