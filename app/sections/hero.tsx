@@ -96,7 +96,6 @@ export default function Hero() {
         bg-transparent
       "
     >
-
       {/* COLOR ATMOSPHERE */}
       <motion.div
         animate={{
@@ -175,7 +174,7 @@ export default function Hero() {
           text-[18vw]
           font-black
           tracking-[-0.08em]
-          opacity-[0.05]
+          opacity-[0.04]
           select-none
         "
       >
@@ -237,7 +236,7 @@ export default function Hero() {
             lg:flex
           "
         >
-          <a href="#">Projects</a>
+          <a href="#">Products</a>
           <a href="#">Experience</a>
           <a href="#">Studio</a>
           <a href="#">Contact</a>
@@ -249,209 +248,25 @@ export default function Hero() {
         className="
           relative
           z-20
-          grid
+          flex
           min-h-[88vh]
           items-center
-          gap-10
+          justify-center
           px-8
           pb-10
           pt-6
-          lg:grid-cols-2
           lg:px-16
         "
       >
-        {/* LEFT */}
-        <div className="relative z-30 max-w-[620px]">
-          {/* LABEL */}
-          <motion.div
-            animate={{
-              borderColor: active.accent,
-            }}
-            className="
-              mb-7
-              inline-flex
-              items-center
-              gap-3
-              rounded-full
-              border
-              bg-white/60
-              px-5
-              py-3
-              backdrop-blur-xl
-            "
-          >
-            <motion.div
-              animate={{
-                opacity: [0.5, 1, 0.5],
-                backgroundColor: active.accent,
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 2.5,
-              }}
-              className="h-2.5 w-2.5 rounded-full"
-            />
-
-            <span
-              className="
-                text-[11px]
-                uppercase
-                tracking-[0.25em]
-                text-[#666]
-              "
-            >
-              Immersive Botanical Experience
-            </span>
-          </motion.div>
-
-          {/* TEXT */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={active.id}
-              initial={{
-                opacity: 0,
-                y: 25,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              exit={{
-                opacity: 0,
-              }}
-              transition={{
-                duration: 0.6,
-              }}
-            >
-              <h2
-                className="
-                  whitespace-pre-line
-                  text-[4rem]
-                  font-semibold
-                  leading-[0.92]
-                  tracking-[-0.08em]
-                  text-[#1b1b1b]
-                  lg:text-[6rem]
-                "
-              >
-                {active.title}
-              </h2>
-
-              <p
-                className="
-                  mt-8
-                  max-w-[560px]
-                  text-[1.05rem]
-                  leading-relaxed
-                  text-[#5f5f5f]
-                "
-              >
-                {active.description}
-              </p>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* MOODS */}
-          <div className="mt-24 flex flex-wrap gap-6">
-            {moods.map((mood) => {
-              const Icon = mood.icon;
-
-              return (
-                <motion.button
-                  key={mood.id}
-                  onClick={() => setActive(mood)}
-                  whileHover={{
-                    y: -6,
-                    scale: 1.03,
-                  }}
-                  whileTap={{
-                    scale: 0.97,
-                  }}
-                  className="
-                    group
-                    relative
-                    overflow-hidden
-                    rounded-[30px]
-                    border
-                    border-[#e7e1d8]
-                    bg-white/45
-                    px-7
-                    py-5
-                    text-left
-                    backdrop-blur-xl
-                  "
-                  style={{
-                    boxShadow:
-                      active.id === mood.id
-                        ? `0 10px 40px ${mood.glow}`
-                        : "none",
-                  }}
-                >
-                  {/* HOVER LIGHT */}
-                  <motion.div
-                    animate={{
-                      opacity:
-                        active.id === mood.id ? 1 : 0,
-                    }}
-                    className="
-                      absolute
-                      inset-0
-                    "
-                    style={{
-                      background: `
-                        radial-gradient(
-                          circle at top left,
-                          ${mood.glow},
-                          transparent 70%
-                        )
-                      `,
-                    }}
-                  />
-
-                  <div className="relative z-10">
-                    <div
-                      className="
-                        mb-4
-                        flex
-                        h-12
-                        w-12
-                        items-center
-                        justify-center
-                        rounded-full
-                      "
-                      style={{
-                        background: `${mood.accent}25`,
-                      }}
-                    >
-                      <Icon
-                        size={22}
-                        style={{
-                          color: mood.accent,
-                        }}
-                      />
-                    </div>
-
-                    <h3 className="text-[1rem] font-medium text-[#1f1f1f]">
-                      {mood.name}
-                    </h3>
-
-                    <p className="mt-2 text-sm text-[#6d6d6d]">
-                      {mood.label}
-                    </p>
-                  </div>
-                </motion.button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* RIGHT */}
+        {/* MODEL */}
         <div
           className="
-            relative
+            absolute
+            inset-0
             flex
             items-center
             justify-center
+            pointer-events-none
           "
         >
           {/* PARTICLES */}
@@ -474,13 +289,13 @@ export default function Hero() {
             }}
           />
 
-          {/* MODEL */}
+          {/* MODEL WRAPPER */}
           <AnimatePresence mode="wait">
             <motion.div
               key={active.id}
               initial={{
                 opacity: 0,
-                y: 40,
+                y: 30,
               }}
               animate={{
                 opacity: 1,
@@ -492,7 +307,13 @@ export default function Hero() {
               transition={{
                 duration: 0.8,
               }}
-              className="relative z-20"
+              className="
+                relative
+                z-20
+                flex
+                items-center
+                justify-center
+              "
             >
               {/* MODEL GLOW */}
               <motion.div
@@ -504,13 +325,15 @@ export default function Hero() {
                 }}
                 className="
                   absolute
-                  inset-0
+                  h-[520px]
+                  w-[520px]
                   rounded-full
-                  blur-[120px]
+                  blur-[140px]
                   opacity-70
                 "
               />
 
+              {/* MODEL */}
               <motion.div
                 animate={{
                   y: [0, -10, 0],
@@ -524,26 +347,282 @@ export default function Hero() {
                 <Image
                   src="/images/modelo1.webp"
                   alt="Model"
-                  width={780}
+                  width={820}
                   height={1000}
                   priority
-                  quality={85}
+                  quality={90}
                   className="
                     relative
                     z-20
-                    h-[86vh]
+                    h-[90vh]
                     w-auto
                     object-contain
-                    object-bottom
                     mix-blend-multiply
-                    opacity-[0.96]
+                    opacity-[0.97]
                   "
                 />
               </motion.div>
             </motion.div>
           </AnimatePresence>
+        </div>
 
-          {/* PRODUCT CARD */}
+        {/* CONTENT */}
+        <div
+          className="
+            relative
+            z-40
+            flex
+            w-full
+            items-center
+            justify-between
+          "
+        >
+          {/* LEFT CONTENT */}
+          <div
+            className="
+              max-w-[580px]
+            "
+          >
+            {/* MAIN GLASS CARD */}
+            <div
+              className="
+                relative
+                overflow-hidden
+                rounded-[42px]
+                border
+                border-white/30
+                bg-white/[0.20]
+                p-8
+                backdrop-blur-[24px]
+                lg:p-10
+              "
+            >
+              {/* INNER LIGHT */}
+              <div
+                className="
+                  absolute
+                  inset-0
+                  bg-gradient-to-b
+                  from-white/40
+                  to-transparent
+                  opacity-60
+                "
+              />
+
+              <div className="relative z-20">
+                {/* LABEL */}
+                <motion.div
+                  animate={{
+                    borderColor: active.accent,
+                  }}
+                  className="
+                    mb-8
+                    inline-flex
+                    items-center
+                    gap-3
+                    rounded-full
+                    border
+                    bg-white/50
+                    px-5
+                    py-3
+                    backdrop-blur-xl
+                  "
+                >
+                  <motion.div
+                    animate={{
+                      opacity: [0.5, 1, 0.5],
+                      backgroundColor: active.accent,
+                    }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 2.5,
+                    }}
+                    className="h-2.5 w-2.5 rounded-full"
+                  />
+
+                  <span
+                    className="
+                      text-[10px]
+                      uppercase
+                      tracking-[0.25em]
+                      text-[#666]
+                    "
+                  >
+                    Immersive Botanical Experience
+                  </span>
+                </motion.div>
+
+                {/* TEXT */}
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={active.id}
+                    initial={{
+                      opacity: 0,
+                      y: 25,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    exit={{
+                      opacity: 0,
+                    }}
+                    transition={{
+                      duration: 0.6,
+                    }}
+                  >
+                    <h2
+                      className="
+                        whitespace-pre-line
+                        font-serif
+                        text-[3.8rem]
+                        leading-[0.95]
+                        tracking-[-0.06em]
+                        text-[#1b1b1b]
+                        lg:text-[5.2rem]
+                      "
+                    >
+                      {active.title}
+                    </h2>
+
+                    <p
+                      className="
+                        mt-7
+                        max-w-[470px]
+                        text-[1rem]
+                        leading-[1.9]
+                        text-[#5f5f5f]
+                      "
+                    >
+                      {active.description}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
+
+            {/* MOOD BAR */}
+            <div
+              className="
+                mt-8
+                flex
+                items-center
+                gap-4
+                rounded-[36px]
+                border
+                border-white/30
+                bg-white/[0.18]
+                p-4
+                backdrop-blur-[20px]
+              "
+            >
+              {moods.map((mood) => {
+                const Icon = mood.icon;
+
+                return (
+                  <motion.button
+                    key={mood.id}
+                    onClick={() => setActive(mood)}
+                    whileHover={{
+                      y: -3,
+                    }}
+                    whileTap={{
+                      scale: 0.97,
+                    }}
+                    className="
+                      relative
+                      flex-1
+                      overflow-hidden
+                      rounded-[26px]
+                      px-5
+                      py-4
+                      text-left
+                      transition-all
+                    "
+                    style={{
+                      background:
+                        active.id === mood.id
+                          ? "rgba(255,255,255,0.55)"
+                          : "transparent",
+
+                      boxShadow:
+                        active.id === mood.id
+                          ? `0 10px 35px ${mood.glow}`
+                          : "none",
+                    }}
+                  >
+                    {/* ACTIVE GLOW */}
+                    <motion.div
+                      animate={{
+                        opacity:
+                          active.id === mood.id ? 1 : 0,
+                      }}
+                      className="
+                        absolute
+                        inset-0
+                      "
+                      style={{
+                        background: `
+                          radial-gradient(
+                            circle at top left,
+                            ${mood.glow},
+                            transparent 75%
+                          )
+                        `,
+                      }}
+                    />
+
+                    <div className="relative z-10 flex items-center gap-4">
+                      <div
+                        className="
+                          flex
+                          h-12
+                          w-12
+                          items-center
+                          justify-center
+                          rounded-full
+                        "
+                        style={{
+                          background: `${mood.accent}20`,
+                        }}
+                      >
+                        <Icon
+                          size={22}
+                          style={{
+                            color: mood.accent,
+                          }}
+                        />
+                      </div>
+
+                      <div>
+                        <h3
+                          className="
+                            text-[1rem]
+                            font-medium
+                            text-[#1f1f1f]
+                          "
+                        >
+                          {mood.name}
+                        </h3>
+
+                        <p
+                          className="
+                            mt-1
+                            text-[0.82rem]
+                            text-[#6d6d6d]
+                          "
+                        >
+                          {mood.label}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* FLOATING PRODUCT */}
           <motion.div
             key={active.id}
             initial={{
@@ -558,21 +637,36 @@ export default function Hero() {
               duration: 0.7,
             }}
             className="
-              absolute
-              right-[2%]
-              top-[12%]
+              relative
               z-40
-              rounded-[100px]
+              mr-8
+              hidden
+              w-[240px]
+              overflow-hidden
+              rounded-[999px]
               border
-              border-[#e4ddd2]
-              bg-white/45
-              p-4
-              backdrop-blur-2xl
+              border-white/30
+              bg-white/[0.22]
+              p-5
+              backdrop-blur-[24px]
+              lg:block
             "
             style={{
-              boxShadow: `0 15px 50px ${active.glow}`,
+              boxShadow: `0 20px 60px ${active.glow}`,
             }}
           >
+            {/* LIGHT */}
+            <div
+              className="
+                absolute
+                inset-0
+                bg-gradient-to-b
+                from-white/45
+                to-transparent
+                opacity-60
+              "
+            />
+
             <motion.div
               animate={{
                 y: [0, -8, 0],
@@ -582,26 +676,53 @@ export default function Hero() {
                 duration: 5,
                 ease: "easeInOut",
               }}
+              className="
+                relative
+                z-20
+                flex
+                justify-center
+              "
             >
               <Image
                 src={active.product}
                 alt={active.name}
-                width={150}
-                height={200}
-                quality={80}
+                width={160}
+                height={210}
+                quality={90}
                 className="
-                  rounded-[100px]
-                  object-cover
+                  object-contain
                 "
               />
             </motion.div>
 
-            <div className="mt-2">
-              <p className="text-sm text-[#777]">
+            <div
+              className="
+                relative
+                z-20
+                mt-3
+                text-center
+              "
+            >
+              <p
+                className="
+                  text-[11px]
+                  uppercase
+                  tracking-[0.24em]
+                  text-[#777]
+                "
+              >
                 Active Environment
               </p>
 
-              <h3 className="mt-3 text-lg text-[#222]">
+              <h3
+                className="
+                  mt-3
+                  text-[1.1rem]
+                  font-medium
+                  tracking-[-0.03em]
+                  text-[#222]
+                "
+              >
                 {active.name}
               </h3>
             </div>
