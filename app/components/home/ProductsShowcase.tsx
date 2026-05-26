@@ -10,7 +10,7 @@ const products = [
     name: "Botanical Recovery Serum",
     price: "$48",
     image: "/images/serum1.webp",
-    glow: "rgba(168,181,155,0.18)",
+    glow: "rgba(168,181,155,0.30)",
   },
 
   {
@@ -18,7 +18,7 @@ const products = [
     name: "Centella Skin Essence",
     price: "$52",
     image: "/images/serum2.webp",
-    glow: "rgba(175,207,211,0.18)",
+    glow: "rgba(175,207,211,0.30)",
   },
 
   {
@@ -26,7 +26,7 @@ const products = [
     name: "Night Repair Ampoule",
     price: "$64",
     image: "/images/serum3.webp",
-    glow: "rgba(198,162,127,0.18)",
+    glow: "rgba(198,162,127,0.30)",
   },
 
   {
@@ -34,7 +34,7 @@ const products = [
     name: "Botanical Glow Oil",
     price: "$58",
     image: "/images/serum4.webp",
-    glow: "rgba(168,181,155,0.18)",
+    glow: "rgba(168,181,155,0.30)",
   },
 
   {
@@ -42,7 +42,7 @@ const products = [
     name: "Crystal Water Toner",
     price: "$42",
     image: "/images/serum5.webp",
-    glow: "rgba(175,207,211,0.18)",
+    glow: "rgba(175,207,211,0.30)",
   },
 
   {
@@ -50,7 +50,7 @@ const products = [
     name: "Earth Balance Cream",
     price: "$55",
     image: "/images/serum6.webp",
-    glow: "rgba(198,162,127,0.18)",
+    glow: "rgba(198,162,127,0.30)",
   },
 ];
 
@@ -60,29 +60,22 @@ export default function ProductsShowcase() {
       className="
         relative
         overflow-hidden
-        px-6
+        px-8
         py-24
-
         lg:px-16
       "
     >
-      {/* SOFT LIGHT */}
+      {/* AMBIENT LIGHT */}
       <div
         className="
-          pointer-events-none
           absolute
-          left-[-120px]
+          left-[-200px]
           top-[20%]
-          h-[320px]
-          w-[320px]
+          h-[500px]
+          w-[500px]
           rounded-full
           bg-[#dfe8d7]/20
-          blur-[90px]
-          opacity-70
-
-          lg:h-[420px]
-          lg:w-[420px]
-          lg:blur-[120px]
+          blur-[140px]
         "
       />
 
@@ -92,14 +85,12 @@ export default function ProductsShowcase() {
           mb-20
           grid
           gap-10
-
           lg:grid-cols-[1.1fr_0.9fr]
           lg:items-end
         "
       >
         {/* LEFT */}
         <div className="max-w-[620px]">
-          {/* LABEL */}
           <div
             className="
               mb-6
@@ -108,10 +99,11 @@ export default function ProductsShowcase() {
               gap-3
               rounded-full
               border
-              border-black/5
-              bg-white/70
+              border-[#ddd5ca]
+              bg-white/35
               px-5
               py-3
+              backdrop-blur-xl
             "
           >
             <div className="h-2 w-2 rounded-full bg-[#93a086]" />
@@ -128,16 +120,14 @@ export default function ProductsShowcase() {
             </span>
           </div>
 
-          {/* TITLE */}
           <h2
             className="
               max-w-[560px]
-              text-[2.8rem]
+              text-[3rem]
               font-semibold
               leading-[0.88]
               tracking-[-0.08em]
               text-[#111]
-
               lg:text-[3.8rem]
             "
           >
@@ -145,17 +135,16 @@ export default function ProductsShowcase() {
           </h2>
         </div>
 
-        {/* EMPTY */}
-        <div className="lg:pl-10" />
+        {/* RIGHT */}
+        <div className="lg:pl-10"></div>
       </div>
 
       {/* PRODUCTS */}
       <div
         className="
           grid
-          gap-x-8
-          gap-y-12
-
+          gap-x-10
+          gap-y-14
           md:grid-cols-2
           xl:grid-cols-3
         "
@@ -165,21 +154,21 @@ export default function ProductsShowcase() {
             key={product.id}
             initial={{
               opacity: 0,
-              y: 40,
+              y: 50,
             }}
             whileInView={{
               opacity: 1,
               y: 0,
             }}
             transition={{
-              duration: 0.7,
-              delay: index * 0.06,
+              duration: 0.8,
+              delay: index * 0.08,
             }}
             viewport={{
               once: true,
             }}
             whileHover={{
-              y: -6,
+              y: -8,
             }}
             className={`
               group
@@ -188,19 +177,25 @@ export default function ProductsShowcase() {
               ${index % 2 === 0 ? "mt-0" : "mt-8"}
             `}
           >
-            {/* SOFT GLOW */}
-            <div
+            {/* GLOW */}
+            <motion.div
+              animate={{
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 5,
+              }}
               className="
                 absolute
                 left-1/2
                 top-[35%]
                 z-0
-                h-[180px]
-                w-[180px]
+                h-[240px]
+                w-[240px]
                 -translate-x-1/2
                 rounded-full
-                blur-[60px]
-                opacity-70
+                blur-[90px]
               "
               style={{
                 background: product.glow,
@@ -213,17 +208,17 @@ export default function ProductsShowcase() {
                 relative
                 z-10
                 flex
-                h-[440px]
+                h-[460px]
                 flex-col
                 overflow-hidden
-                rounded-[34px]
+                rounded-[38px]
                 border
-                border-black/5
-                bg-white/65
-                p-6
-                shadow-[0_10px_30px_rgba(0,0,0,0.04)]
+                border-white/30
+                bg-white/[0.14]
+                p-7
+                backdrop-blur-[18px]
                 transition-all
-                duration-500
+                duration-700
               "
             >
               {/* LIGHT */}
@@ -231,43 +226,49 @@ export default function ProductsShowcase() {
                 className="
                   absolute
                   inset-0
-                  rounded-[34px]
+                  rounded-[38px]
                   bg-gradient-to-b
                   from-white/30
                   to-transparent
-                  opacity-40
+                  opacity-50
                 "
               />
 
               {/* PLUS BUTTON */}
-              <button
-                className="
-                  absolute
-                  right-5
-                  top-5
-                  z-30
-                  flex
-                  h-11
-                  w-11
-                  items-center
-                  justify-center
-                  rounded-full
-                  border
-                  border-[#7C8B68]/20
-                  bg-[#7C8B68]/10
-                  transition-all
-                  duration-300
-
-                  hover:scale-[1.05]
-                  hover:bg-[#7C8B68]/20
-                "
+              <motion.button
+                whileHover={{
+                  scale: 1.08,
+                  rotate: 90,
+                }}
+                whileTap={{
+                  scale: 0.94,
+                }}
+className="
+  absolute
+  right-5
+  top-5
+  z-30
+  flex
+  h-11
+  w-11
+  items-center
+  justify-center
+  rounded-full
+  border
+  border-[#7C8B68]/30
+  bg-[#7C8B68]/20
+  backdrop-blur-xl
+  transition-all
+  duration-500
+  hover:bg-[#7C8B68]/30
+"
               >
-                <Plus
-                  size={18}
-                  color="#749d3b"
-                  strokeWidth={2}
-                />
-              </button>
+              <Plus
+  size={18}
+  color="#749d3b"
+  strokeWidth={2}
+/>
+              </motion.button>
 
               {/* PRODUCT */}
               <div
@@ -280,26 +281,26 @@ export default function ProductsShowcase() {
                   justify-center
                 "
               >
-                {/* SHADOW */}
+                {/* SHADOW BASE */}
                 <div
                   className="
                     absolute
                     bottom-[18%]
-                    h-[24px]
-                    w-[160px]
+                    h-[30px]
+                    w-[180px]
                     rounded-full
                     bg-black/10
-                    blur-[18px]
+                    blur-[22px]
                   "
                 />
 
                 <motion.div
                   whileHover={{
-                    scale: 1.03,
-                    rotate: -1,
+                    scale: 1.04,
+                    rotate: -1.5,
                   }}
                   transition={{
-                    duration: 0.35,
+                    duration: 0.5,
                   }}
                 >
                   <Image
@@ -307,16 +308,11 @@ export default function ProductsShowcase() {
                     alt={product.name}
                     width={500}
                     height={600}
-                    quality={78}
-                    sizes="
-                      (max-width: 768px) 70vw,
-                      (max-width: 1280px) 40vw,
-                      26vw
-                    "
+                    quality={100}
                     className="
-                      w-[210px]
+                      w-[230px]
                       object-contain
-                      drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]
+                      drop-shadow-[0_40px_60px_rgba(0,0,0,0.18)]
                     "
                   />
                 </motion.div>
@@ -336,7 +332,7 @@ export default function ProductsShowcase() {
                 <h3
                   className="
                     max-w-[240px]
-                    text-[1.25rem]
+                    text-[1.35rem]
                     font-medium
                     leading-[1.1]
                     tracking-[-0.05em]
@@ -349,7 +345,7 @@ export default function ProductsShowcase() {
                 <span
                   className="
                     mt-4
-                    text-[1.08rem]
+                    text-[1.15rem]
                     tracking-[-0.04em]
                     text-[#222]
                   "
@@ -363,17 +359,17 @@ export default function ProductsShowcase() {
                 className="
                   absolute
                   inset-0
-                  rounded-[34px]
+                  rounded-[38px]
                   opacity-0
-                  transition-opacity
-                  duration-500
+                  transition-all
+                  duration-700
                   group-hover:opacity-100
                 "
                 style={{
                   background: `
                     radial-gradient(
                       circle at top,
-                      rgba(255,255,255,0.16),
+                      rgba(255,255,255,0.22),
                       transparent 60%
                     )
                   `,

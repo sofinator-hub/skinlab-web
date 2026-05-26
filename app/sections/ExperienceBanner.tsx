@@ -9,37 +9,14 @@ import {
   Sparkles,
   Leaf,
 } from "lucide-react";
-
-const benefits = [
-  {
-    icon: Droplets,
-    text: "Hidratación profunda",
-  },
-
-  {
-    icon: ShieldCheck,
-    text: "Refuerza la barrera",
-  },
-
-  {
-    icon: Sparkles,
-    text: "Tecnología LED",
-  },
-
-  {
-    icon: Leaf,
-    text: "Ritual nocturno",
-  },
-];
-
+ 
 export default function ExperienceBanner() {
   return (
     <section
       className="
         relative
         z-20
-        px-6
-
+        px-8
         lg:px-16
       "
     >
@@ -53,7 +30,7 @@ export default function ExperienceBanner() {
           y: 0,
         }}
         transition={{
-          duration: 0.8,
+          duration: 0.9,
         }}
         viewport={{
           once: true,
@@ -61,35 +38,39 @@ export default function ExperienceBanner() {
         className="
           relative
           overflow-hidden
-          rounded-[36px]
+          rounded-[42px]
           border
-          border-black/5
-          bg-white/65
-          p-6
-          shadow-[0_10px_40px_rgba(0,0,0,0.05)]
-
-          lg:rounded-[42px]
+          border-white/30
+          bg-white/[0.16]
+          p-8
+          backdrop-blur-[24px]
           lg:p-12
         "
       >
-        {/* SOFT GLOW */}
+        {/* LIGHT */}
         <div
           className="
-            pointer-events-none
             absolute
-            right-[-60px]
+            inset-0
+            bg-gradient-to-br
+            from-[#dbe7ea]/30
+            via-white/10
+            to-[#a8b59b]/20
+          "
+        />
+
+        {/* GLOW */}
+        <div
+          className="
+            absolute 
+            right-[-120px]
             top-1/2
-            h-[220px]
-            w-[220px]
+            h-[320px]
+            w-[320px]
             -translate-y-1/2
             rounded-full
-            bg-[#9ECED7]/20
-            blur-[70px]
-            opacity-70
-
-            lg:h-[320px]
-            lg:w-[320px]
-            lg:blur-[100px]
+            bg-[#9ECED7]/30
+            blur-[120px]
           "
         />
 
@@ -98,9 +79,8 @@ export default function ExperienceBanner() {
           className="
             relative
             z-20
-            grid
-            gap-10
-
+            grid 
+            gap-10 
             lg:grid-cols-[0.9fr_1fr_0.8fr]
             lg:items-center
           "
@@ -110,14 +90,11 @@ export default function ExperienceBanner() {
             className="
               relative
               overflow-hidden
-              rounded-[28px]
-              border
-              border-black/5
-              bg-[#ece7de]
+              rounded-[32px]
+              bg-[#e9e4da]/70
               p-4
             "
-          >
-            {/* LIGHT */}
+          > 
             <div
               className="
                 absolute
@@ -131,11 +108,9 @@ export default function ExperienceBanner() {
             <Image
               src="/images/ledmask.webp"
               alt="LED Mask"
-              width={700}
+              width={700} 
               height={700}
-              quality={78}
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="
+              className=" 
                 relative
                 z-20
                 w-full
@@ -144,9 +119,8 @@ export default function ExperienceBanner() {
             />
           </div>
 
-          {/* CENTER CONTENT */}
-          <div className="max-w-[520px]">
-            {/* LABEL */}
+          {/* CENTER */}
+          <div className="max-w-[520px]"> 
             <div
               className="
                 mb-6
@@ -155,10 +129,11 @@ export default function ExperienceBanner() {
                 gap-3
                 rounded-full
                 border
-                border-black/5
-                bg-white/70
+                border-[#d7d0c6]
+                bg-white/40
                 px-5
                 py-3
+                backdrop-blur-xl
               "
             >
               <div className="h-2 w-2 rounded-full bg-[#9ECED7]" />
@@ -174,24 +149,21 @@ export default function ExperienceBanner() {
                 Experiencia EDEN
               </span>
             </div>
-
-            {/* TITLE */}
+ 
             <h2
               className="
-                text-[2.8rem]
+                text-[3rem]
                 font-semibold
                 leading-[0.92]
                 tracking-[-0.07em]
                 text-[#151515]
-
-                lg:text-[4.2rem]
+                lg:text-[4.4rem]
               "
             >
               Kit Regeneración Facial
             </h2>
 
-            {/* DESCRIPTION */}
-            <p
+            <p 
               className="
                 mt-6
                 max-w-[460px]
@@ -206,7 +178,13 @@ export default function ExperienceBanner() {
             </p>
 
             {/* BUTTON */}
-            <button
+            <motion.button
+              whileHover={{
+                scale: 1.03,
+              }}
+              whileTap={{
+                scale: 0.97,
+              }}
               className="
                 mt-8
                 rounded-full
@@ -215,16 +193,14 @@ export default function ExperienceBanner() {
                 py-4
                 text-[0.9rem]
                 text-white
-                shadow-[0_10px_30px_rgba(124,139,104,0.22)]
+                shadow-[0_10px_40px_rgba(124,139,104,0.35)]
                 transition-all
-                duration-300
-
-                hover:scale-[1.02]
+                duration-500
                 hover:bg-[#6d7b5c]
               "
             >
               Descubrir experiencia
-            </button>
+            </motion.button>
           </div>
 
           {/* RIGHT BENEFITS */}
@@ -232,43 +208,50 @@ export default function ExperienceBanner() {
             className="
               flex
               flex-col
-              gap-5
+              gap-6
             "
           >
-            {benefits.map((item, index) => {
+            {[
+              {
+                icon: Droplets,
+                text: "Hidratación profunda",
+              },
+
+              {
+                icon: ShieldCheck,
+                text: "Refuerza la barrera",
+              },
+
+              {
+                icon: Sparkles,
+                text: "Tecnología LED",
+              },
+
+              {
+                icon: Leaf,
+                text: "Ritual nocturno",
+              },
+            ].map((item, index) => {
               const Icon = item.icon;
 
               return (
                 <motion.div
                   key={index}
-                  initial={{
-                    opacity: 0,
-                    x: 20,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    x: 0,
-                  }}
-                  transition={{
-                    duration: 0.45,
-                    delay: index * 0.08,
-                  }}
-                  viewport={{
-                    once: true,
+                  whileHover={{
+                    x: 6,
                   }}
                   className="
                     flex
                     items-center
                     gap-4
-                    rounded-[22px]
+                    rounded-[24px]
                     border
-                    border-black/5
-                    bg-white/65
+                    border-white/30
+                    bg-white/30
                     p-4
-                    shadow-[0_6px_20px_rgba(0,0,0,0.03)]
-                  "
-                >
-                  {/* ICON */}
+                    backdrop-blur-xl
+                  " 
+                > 
                   <div
                     className="
                       flex
@@ -277,7 +260,7 @@ export default function ExperienceBanner() {
                       items-center
                       justify-center
                       rounded-full
-                      bg-[#9ECED7]/15
+                      bg-[#9ECED7]/20
                     "
                   >
                     <Icon
@@ -285,8 +268,7 @@ export default function ExperienceBanner() {
                       className="text-[#5f6f72]"
                     />
                   </div>
-
-                  {/* TEXT */}
+ 
                   <span
                     className="
                       text-[0.95rem]
