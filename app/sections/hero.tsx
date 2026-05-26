@@ -615,8 +615,8 @@ export default function Hero() {
     <Image
       src={active.product}
       alt={active.name}
-      width={105}
-      height={170}
+      width={205}
+      height={270}
       quality={90}
       className="
         object-contain
