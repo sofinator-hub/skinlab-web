@@ -22,7 +22,7 @@ const steps = [
 
     image: "/images/serum7.webp",
 
-    glow: "rgba(158,206,215,0.28)",
+    glow: "rgba(158,206,215,0.18)",
   },
 
   {
@@ -37,7 +37,7 @@ const steps = [
 
     image: "/images/serum3.webp",
 
-    glow: "rgba(124,139,104,0.28)",
+    glow: "rgba(124,139,104,0.18)",
   },
 
   {
@@ -52,7 +52,7 @@ const steps = [
 
     image: "/images/serum8.webp",
 
-    glow: "rgba(198,162,127,0.28)",
+    glow: "rgba(198,162,127,0.18)",
   },
 ];
 
@@ -63,25 +63,31 @@ export default function Routine() {
         relative
         z-20
         overflow-hidden
-        px-8
-        py-28
+        px-6
+        py-24
+
         lg:px-16
       "
     >
-      {/* AMBIENT GLOW */}
+      {/* SOFT AMBIENT LIGHT */}
       <div
         className="
           pointer-events-none
           absolute
           left-1/2
           top-1/2
-          h-[620px]
-          w-[620px]
+          h-[320px]
+          w-[320px]
           -translate-x-1/2
           -translate-y-1/2
           rounded-full
-          bg-[#dfe7df]/20
-          blur-[140px]
+          bg-[#dfe7df]/18
+          blur-[90px]
+          opacity-70
+
+          lg:h-[460px]
+          lg:w-[460px]
+          lg:blur-[120px]
         "
       />
 
@@ -96,7 +102,7 @@ export default function Routine() {
           y: 0,
         }}
         transition={{
-          duration: 0.8,
+          duration: 0.7,
         }}
         viewport={{
           once: true,
@@ -119,11 +125,10 @@ export default function Routine() {
             gap-3
             rounded-full
             border
-            border-[#ddd4c8]
-            bg-white/35
+            border-black/5
+            bg-white/70
             px-5
             py-3
-            backdrop-blur-xl
           "
         >
           <div className="h-2 w-2 rounded-full bg-[#7C8B68]" />
@@ -143,11 +148,12 @@ export default function Routine() {
         {/* TITLE */}
         <h2
           className="
-            text-[3rem]
+            text-[2.8rem]
             font-semibold
             leading-[0.92]
             tracking-[-0.08em]
             text-[#151515]
+
             lg:text-[4.6rem]
           "
         >
@@ -180,6 +186,7 @@ export default function Routine() {
           z-20
           grid
           gap-8
+
           lg:grid-cols-3
         "
       >
@@ -198,32 +205,33 @@ export default function Routine() {
                 y: 0,
               }}
               transition={{
-                duration: 0.8,
-                delay: index * 0.12,
+                duration: 0.7,
+                delay: index * 0.08,
               }}
               viewport={{
                 once: true,
               }}
               whileHover={{
-                y: -8,
+                y: -5,
               }}
               className="
                 group
                 relative
               "
             >
-              {/* GLOW */}
+              {/* SOFT GLOW */}
               <div
                 className="
                   absolute
                   left-1/2
                   top-[38%]
                   z-0
-                  h-[220px]
-                  w-[220px]
+                  h-[180px]
+                  w-[180px]
                   -translate-x-1/2
                   rounded-full
-                  blur-[90px]
+                  blur-[60px]
+                  opacity-70
                 "
                 style={{
                   background: step.glow,
@@ -239,12 +247,12 @@ export default function Routine() {
                   h-full
                   flex-col
                   overflow-hidden
-                  rounded-[38px]
+                  rounded-[34px]
                   border
-                  border-white/30
-                  bg-white/[0.14]
-                  p-7
-                  backdrop-blur-[18px]
+                  border-black/5
+                  bg-white/65
+                  p-6
+                  shadow-[0_10px_30px_rgba(0,0,0,0.04)]
                 "
               >
                 {/* LIGHT */}
@@ -252,15 +260,15 @@ export default function Routine() {
                   className="
                     absolute
                     inset-0
-                    rounded-[38px]
+                    rounded-[34px]
                     bg-gradient-to-b
-                    from-white/35
+                    from-white/25
                     to-transparent
-                    opacity-50
+                    opacity-40
                   "
                 />
 
-                {/* STEP NUMBER */}
+                {/* TOP */}
                 <div
                   className="
                     relative
@@ -271,6 +279,7 @@ export default function Routine() {
                     justify-between
                   "
                 >
+                  {/* ICON */}
                   <div
                     className="
                       flex
@@ -279,8 +288,7 @@ export default function Routine() {
                       items-center
                       justify-center
                       rounded-full
-                      bg-white/45
-                      backdrop-blur-xl
+                      bg-white/70
                     "
                   >
                     <Icon
@@ -289,6 +297,7 @@ export default function Routine() {
                     />
                   </div>
 
+                  {/* NUMBER */}
                   <span
                     className="
                       text-[0.9rem]
@@ -317,21 +326,21 @@ export default function Routine() {
                     className="
                       absolute
                       bottom-[18%]
-                      h-[30px]
-                      w-[170px]
+                      h-[24px]
+                      w-[160px]
                       rounded-full
                       bg-black/10
-                      blur-[20px]
+                      blur-[18px]
                     "
                   />
 
                   <motion.div
                     whileHover={{
-                      scale: 1.04,
-                      rotate: -2,
+                      scale: 1.03,
+                      rotate: -1,
                     }}
                     transition={{
-                      duration: 0.5,
+                      duration: 0.35,
                     }}
                   >
                     <Image
@@ -339,12 +348,18 @@ export default function Routine() {
                       alt={step.title}
                       width={420}
                       height={500}
+                      quality={78}
+                      sizes="
+                        (max-width: 768px) 70vw,
+                        (max-width: 1280px) 35vw,
+                        24vw
+                      "
                       className="
                         relative
                         z-20
-                        w-[210px]
+                        w-[200px]
                         object-contain
-                        drop-shadow-[0_40px_60px_rgba(0,0,0,0.16)]
+                        drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]
                       "
                     />
                   </motion.div>
@@ -361,7 +376,7 @@ export default function Routine() {
                 >
                   <h3
                     className="
-                      text-[1.7rem]
+                      text-[1.55rem]
                       font-medium
                       tracking-[-0.06em]
                       text-[#171717]
@@ -389,17 +404,17 @@ export default function Routine() {
                   className="
                     absolute
                     inset-0
-                    rounded-[38px]
+                    rounded-[34px]
                     opacity-0
-                    transition-all
-                    duration-700
+                    transition-opacity
+                    duration-500
                     group-hover:opacity-100
                   "
                   style={{
                     background: `
                       radial-gradient(
                         circle at top,
-                        rgba(255,255,255,0.22),
+                        rgba(255,255,255,0.16),
                         transparent 60%
                       )
                     `,

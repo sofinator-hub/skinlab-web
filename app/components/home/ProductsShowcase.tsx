@@ -10,7 +10,7 @@ const products = [
     name: "Botanical Recovery Serum",
     price: "$48",
     image: "/images/serum1.webp",
-    glow: "rgba(168,181,155,0.30)",
+    glow: "rgba(168,181,155,0.18)",
   },
 
   {
@@ -18,7 +18,7 @@ const products = [
     name: "Centella Skin Essence",
     price: "$52",
     image: "/images/serum2.webp",
-    glow: "rgba(175,207,211,0.30)",
+    glow: "rgba(175,207,211,0.18)",
   },
 
   {
@@ -26,7 +26,7 @@ const products = [
     name: "Night Repair Ampoule",
     price: "$64",
     image: "/images/serum3.webp",
-    glow: "rgba(198,162,127,0.30)",
+    glow: "rgba(198,162,127,0.18)",
   },
 
   {
@@ -34,7 +34,7 @@ const products = [
     name: "Botanical Glow Oil",
     price: "$58",
     image: "/images/serum4.webp",
-    glow: "rgba(168,181,155,0.30)",
+    glow: "rgba(168,181,155,0.18)",
   },
 
   {
@@ -42,7 +42,7 @@ const products = [
     name: "Crystal Water Toner",
     price: "$42",
     image: "/images/serum5.webp",
-    glow: "rgba(175,207,211,0.30)",
+    glow: "rgba(175,207,211,0.18)",
   },
 
   {
@@ -50,7 +50,7 @@ const products = [
     name: "Earth Balance Cream",
     price: "$55",
     image: "/images/serum6.webp",
-    glow: "rgba(198,162,127,0.30)",
+    glow: "rgba(198,162,127,0.18)",
   },
 ];
 
@@ -60,22 +60,29 @@ export default function ProductsShowcase() {
       className="
         relative
         overflow-hidden
-        px-8
+        px-6
         py-24
+
         lg:px-16
       "
     >
-      {/* AMBIENT LIGHT */}
+      {/* SOFT LIGHT */}
       <div
         className="
+          pointer-events-none
           absolute
-          left-[-200px]
+          left-[-120px]
           top-[20%]
-          h-[500px]
-          w-[500px]
+          h-[320px]
+          w-[320px]
           rounded-full
           bg-[#dfe8d7]/20
-          blur-[140px]
+          blur-[90px]
+          opacity-70
+
+          lg:h-[420px]
+          lg:w-[420px]
+          lg:blur-[120px]
         "
       />
 
@@ -85,12 +92,14 @@ export default function ProductsShowcase() {
           mb-20
           grid
           gap-10
+
           lg:grid-cols-[1.1fr_0.9fr]
           lg:items-end
         "
       >
         {/* LEFT */}
         <div className="max-w-[620px]">
+          {/* LABEL */}
           <div
             className="
               mb-6
@@ -99,11 +108,10 @@ export default function ProductsShowcase() {
               gap-3
               rounded-full
               border
-              border-[#ddd5ca]
-              bg-white/35
+              border-black/5
+              bg-white/70
               px-5
               py-3
-              backdrop-blur-xl
             "
           >
             <div className="h-2 w-2 rounded-full bg-[#93a086]" />
@@ -120,14 +128,16 @@ export default function ProductsShowcase() {
             </span>
           </div>
 
+          {/* TITLE */}
           <h2
             className="
               max-w-[560px]
-              text-[3rem]
+              text-[2.8rem]
               font-semibold
               leading-[0.88]
               tracking-[-0.08em]
               text-[#111]
+
               lg:text-[3.8rem]
             "
           >
@@ -135,16 +145,17 @@ export default function ProductsShowcase() {
           </h2>
         </div>
 
-        {/* RIGHT */}
-        <div className="lg:pl-10"></div>
+        {/* EMPTY */}
+        <div className="lg:pl-10" />
       </div>
 
       {/* PRODUCTS */}
       <div
         className="
           grid
-          gap-x-10
-          gap-y-14
+          gap-x-8
+          gap-y-12
+
           md:grid-cols-2
           xl:grid-cols-3
         "
@@ -154,21 +165,21 @@ export default function ProductsShowcase() {
             key={product.id}
             initial={{
               opacity: 0,
-              y: 50,
+              y: 40,
             }}
             whileInView={{
               opacity: 1,
               y: 0,
             }}
             transition={{
-              duration: 0.8,
-              delay: index * 0.08,
+              duration: 0.7,
+              delay: index * 0.06,
             }}
             viewport={{
               once: true,
             }}
             whileHover={{
-              y: -8,
+              y: -6,
             }}
             className={`
               group
@@ -177,25 +188,19 @@ export default function ProductsShowcase() {
               ${index % 2 === 0 ? "mt-0" : "mt-8"}
             `}
           >
-            {/* GLOW */}
-            <motion.div
-              animate={{
-                opacity: [0.3, 0.5, 0.3],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 5,
-              }}
+            {/* SOFT GLOW */}
+            <div
               className="
                 absolute
                 left-1/2
                 top-[35%]
                 z-0
-                h-[240px]
-                w-[240px]
+                h-[180px]
+                w-[180px]
                 -translate-x-1/2
                 rounded-full
-                blur-[90px]
+                blur-[60px]
+                opacity-70
               "
               style={{
                 background: product.glow,
@@ -208,17 +213,17 @@ export default function ProductsShowcase() {
                 relative
                 z-10
                 flex
-                h-[460px]
+                h-[440px]
                 flex-col
                 overflow-hidden
-                rounded-[38px]
+                rounded-[34px]
                 border
-                border-white/30
-                bg-white/[0.14]
-                p-7
-                backdrop-blur-[18px]
+                border-black/5
+                bg-white/65
+                p-6
+                shadow-[0_10px_30px_rgba(0,0,0,0.04)]
                 transition-all
-                duration-700
+                duration-500
               "
             >
               {/* LIGHT */}
@@ -226,49 +231,43 @@ export default function ProductsShowcase() {
                 className="
                   absolute
                   inset-0
-                  rounded-[38px]
+                  rounded-[34px]
                   bg-gradient-to-b
                   from-white/30
                   to-transparent
-                  opacity-50
+                  opacity-40
                 "
               />
 
               {/* PLUS BUTTON */}
-              <motion.button
-                whileHover={{
-                  scale: 1.08,
-                  rotate: 90,
-                }}
-                whileTap={{
-                  scale: 0.94,
-                }}
-className="
-  absolute
-  right-5
-  top-5
-  z-30
-  flex
-  h-11
-  w-11
-  items-center
-  justify-center
-  rounded-full
-  border
-  border-[#7C8B68]/30
-  bg-[#7C8B68]/20
-  backdrop-blur-xl
-  transition-all
-  duration-500
-  hover:bg-[#7C8B68]/30
-"
+              <button
+                className="
+                  absolute
+                  right-5
+                  top-5
+                  z-30
+                  flex
+                  h-11
+                  w-11
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-[#7C8B68]/20
+                  bg-[#7C8B68]/10
+                  transition-all
+                  duration-300
+
+                  hover:scale-[1.05]
+                  hover:bg-[#7C8B68]/20
+                "
               >
-              <Plus
-  size={18}
-  color="#749d3b"
-  strokeWidth={2}
-/>
-              </motion.button>
+                <Plus
+                  size={18}
+                  color="#749d3b"
+                  strokeWidth={2}
+                />
+              </button>
 
               {/* PRODUCT */}
               <div
@@ -281,26 +280,26 @@ className="
                   justify-center
                 "
               >
-                {/* SHADOW BASE */}
+                {/* SHADOW */}
                 <div
                   className="
                     absolute
                     bottom-[18%]
-                    h-[30px]
-                    w-[180px]
+                    h-[24px]
+                    w-[160px]
                     rounded-full
                     bg-black/10
-                    blur-[22px]
+                    blur-[18px]
                   "
                 />
 
                 <motion.div
                   whileHover={{
-                    scale: 1.04,
-                    rotate: -1.5,
+                    scale: 1.03,
+                    rotate: -1,
                   }}
                   transition={{
-                    duration: 0.5,
+                    duration: 0.35,
                   }}
                 >
                   <Image
@@ -308,11 +307,16 @@ className="
                     alt={product.name}
                     width={500}
                     height={600}
-                    quality={100}
+                    quality={78}
+                    sizes="
+                      (max-width: 768px) 70vw,
+                      (max-width: 1280px) 40vw,
+                      26vw
+                    "
                     className="
-                      w-[230px]
+                      w-[210px]
                       object-contain
-                      drop-shadow-[0_40px_60px_rgba(0,0,0,0.18)]
+                      drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]
                     "
                   />
                 </motion.div>
@@ -332,7 +336,7 @@ className="
                 <h3
                   className="
                     max-w-[240px]
-                    text-[1.35rem]
+                    text-[1.25rem]
                     font-medium
                     leading-[1.1]
                     tracking-[-0.05em]
@@ -345,7 +349,7 @@ className="
                 <span
                   className="
                     mt-4
-                    text-[1.15rem]
+                    text-[1.08rem]
                     tracking-[-0.04em]
                     text-[#222]
                   "
@@ -359,17 +363,17 @@ className="
                 className="
                   absolute
                   inset-0
-                  rounded-[38px]
+                  rounded-[34px]
                   opacity-0
-                  transition-all
-                  duration-700
+                  transition-opacity
+                  duration-500
                   group-hover:opacity-100
                 "
                 style={{
                   background: `
                     radial-gradient(
                       circle at top,
-                      rgba(255,255,255,0.22),
+                      rgba(255,255,255,0.16),
                       transparent 60%
                     )
                   `,
