@@ -539,124 +539,124 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* FLOATING PRODUCT */}
-        <motion.div
-          key={active.id}
-          initial={{
-            opacity: 0,
-            x: 30,
-          }}
-          animate={{
-            opacity: 1,
-            x: 0,
-          }}
-          transition={{
-            duration: 0.7,
-          }}
-          className="
-            absolute
-            right-[40px]
-            top-1/2
-            z-40
-            hidden
-            h-[250px]
-            w-[140px]
-            -translate-y-1/2
-            overflow-hidden
-            rounded-[999px]
-            border
-            border-white/30
-            bg-white/[0.18]
-            px-4
-            py-5
-            backdrop-blur-[18px]
+{/* FLOATING PRODUCT */}
+<motion.div
+  key={active.id}
+  initial={{
+    opacity: 0,
+    x: 30,
+  }}
+  animate={{
+    opacity: 1,
+    x: 0,
+  }}
+  transition={{
+    duration: 0.7,
+  }}
+  className="
+    absolute
+    right-[40px]
+    top-[54%]
+    z-40
+    hidden
+    h-[320px]
+    w-[190px]
+    -translate-y-1/2
+    overflow-hidden
+    rounded-[999px]
+    border
+    border-white/30
+    bg-white/[0.18]
+    px-4
+    py-6
+    backdrop-blur-[18px]
 
-            lg:flex
-            flex-col
-            items-center
-            justify-between
-          "
-          style={{
-            boxShadow: `0 20px 60px ${active.glow}`,
-          }}
-        >
-          {/* LIGHT */}
-          <div
-            className="
-              absolute
-              inset-0
-              bg-gradient-to-b
-              from-white/45
-              to-transparent
-              opacity-60
-            "
-          />
+    lg:flex
+    flex-col
+    items-center
+    justify-between
+  "
+  style={{
+    boxShadow: `0 20px 60px ${active.glow}`,
+  }}
+>
+  {/* LIGHT */}
+  <div
+    className="
+      absolute
+      inset-0
+      bg-gradient-to-b
+      from-white/45
+      to-transparent
+      opacity-60
+    "
+  />
 
-          {/* PRODUCT */}
-          <motion.div
-            animate={{
-              y: [0, -6, 0],
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 5,
-              ease: "easeInOut",
-            }}
-            className="
-              relative
-              z-20
-              flex
-              flex-1
-              items-center
-              justify-center
-              pt-2
-            "
-          >
-            <Image
-              src={active.product}
-              alt={active.name}
-              width={72}
-              height={120}
-              quality={90}
-              className="
-                object-contain
-              "
-            />
-          </motion.div>
+  {/* PRODUCT */}
+  <motion.div
+    animate={{
+      y: [0, -6, 0],
+    }}
+    transition={{
+      repeat: Infinity,
+      duration: 5,
+      ease: "easeInOut",
+    }}
+    className="
+      relative
+      z-20
+      flex
+      flex-1
+      items-center
+      justify-center
+      pt-3
+    "
+  >
+    <Image
+      src={active.product}
+      alt={active.name}
+      width={105}
+      height={170}
+      quality={90}
+      className="
+        object-contain
+      "
+    />
+  </motion.div>
 
-          {/* TEXT */}
-          <div
-            className="
-              relative
-              z-20
-              mt-3
-              text-center
-            "
-          >
-            <p
-              className="
-                text-[8px]
-                uppercase
-                tracking-[0.22em]
-                text-[#777]
-              "
-            >
-              Active Environment
-            </p>
+  {/* TEXT */}
+  <div
+    className="
+      relative
+      z-20
+      mt-4
+      text-center
+    "
+  >
+    <p
+      className="
+        text-[9px]
+        uppercase
+        tracking-[0.22em]
+        text-[#777]
+      "
+    >
+      Active Environment
+    </p>
 
-            <h3
-              className="
-                mt-2
-                text-[0.82rem]
-                font-medium
-                tracking-[-0.03em]
-                text-[#222]
-              "
-            >
-              {active.name}
-            </h3>
-          </div>
-        </motion.div>
+    <h3
+      className="
+        mt-2
+        text-[0.95rem]
+        font-medium
+        tracking-[-0.03em]
+        text-[#222]
+      "
+    >
+      {active.name}
+    </h3>
+  </div>
+</motion.div>
       </div>
     </section>
   );
