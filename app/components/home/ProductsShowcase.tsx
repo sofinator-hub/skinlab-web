@@ -265,7 +265,7 @@ export default function ProductsShowcase() {
               >
                 <Plus
                   size={18}
-                  className="text-[#222]"
+                  className="text-[#7C8B68]"
                   strokeWidth={2}
                 />
               </motion.button>
