@@ -481,7 +481,7 @@ export default function Hero() {
             lg:order-2
             lg:mb-0
             lg:flex-1
-            lg:translate-x-[-60px]
+            lg:translate-x-[-90px]
           "
         >
           {/* MODEL GLOW */}
@@ -555,21 +555,26 @@ export default function Hero() {
           }}
           className="
             absolute
-            bottom-[60px]
-            right-[20px]
+            right-[40px]
+            top-1/2
             z-40
             hidden
-            h-[420px]
-            w-[220px]
+            h-[250px]
+            w-[140px]
+            -translate-y-1/2
             overflow-hidden
-            rounded-[48px]
+            rounded-[999px]
             border
             border-white/30
-            bg-white/[0.22]
-            px-5
-            py-7
-            backdrop-blur-[24px]
-            lg:block
+            bg-white/[0.18]
+            px-4
+            py-5
+            backdrop-blur-[18px]
+
+            lg:flex
+            flex-col
+            items-center
+            justify-between
           "
           style={{
             boxShadow: `0 20px 60px ${active.glow}`,
@@ -590,7 +595,7 @@ export default function Hero() {
           {/* PRODUCT */}
           <motion.div
             animate={{
-              y: [0, -8, 0],
+              y: [0, -6, 0],
             }}
             transition={{
               repeat: Infinity,
@@ -604,14 +609,14 @@ export default function Hero() {
               flex-1
               items-center
               justify-center
-              pt-6
+              pt-2
             "
           >
             <Image
               src={active.product}
               alt={active.name}
-              width={130}
-              height={180}
+              width={72}
+              height={120}
               quality={90}
               className="
                 object-contain
@@ -624,15 +629,15 @@ export default function Hero() {
             className="
               relative
               z-20
-              mt-auto
+              mt-3
               text-center
             "
           >
             <p
               className="
-                text-[10px]
+                text-[8px]
                 uppercase
-                tracking-[0.24em]
+                tracking-[0.22em]
                 text-[#777]
               "
             >
@@ -641,8 +646,8 @@ export default function Hero() {
 
             <h3
               className="
-                mt-3
-                text-[1rem]
+                mt-2
+                text-[0.82rem]
                 font-medium
                 tracking-[-0.03em]
                 text-[#222]
