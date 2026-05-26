@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Plus } from "lucide-react";
 
 const products = [
   {
@@ -130,25 +131,12 @@ export default function ProductsShowcase() {
               lg:text-[3.8rem]
             "
           >
-            Skincare designed
-            for slower moments.
+            Skincare.
           </h2>
         </div>
 
         {/* RIGHT */}
-        <div className="lg:pl-10">
-          <p
-            className="
-              max-w-[280px]
-              text-[0.88rem]
-              leading-[1.9]
-              text-[#666]
-            "
-          >
-            Botanical skincare inspired by calm
-            textures and modern luxury wellness.
-          </p>
-        </div>
+        <div className="lg:pl-10"></div>
       </div>
 
       {/* PRODUCTS */}
@@ -245,6 +233,42 @@ export default function ProductsShowcase() {
                   opacity-50
                 "
               />
+
+              {/* PLUS BUTTON */}
+              <motion.button
+                whileHover={{
+                  scale: 1.08,
+                  rotate: 90,
+                }}
+                whileTap={{
+                  scale: 0.94,
+                }}
+                className="
+                  absolute
+                  right-5
+                  top-5
+                  z-30
+                  flex
+                  h-11
+                  w-11
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-white/40
+                  bg-white/40
+                  backdrop-blur-xl
+                  transition-all
+                  duration-500
+                  hover:bg-white/60
+                "
+              >
+                <Plus
+                  size={18}
+                  className="text-[#222]"
+                  strokeWidth={2}
+                />
+              </motion.button>
 
               {/* PRODUCT */}
               <div
