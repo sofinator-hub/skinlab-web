@@ -1,6 +1,7 @@
 import Hero from "./sections/hero";
 import ExperienceBanner from "./sections/ExperienceBanner";
 import Routine from "./sections/Routine";
+import Contact from "./sections/Contact";
 
 import ProductsShowcase from "./components/home/ProductsShowcase";
 
@@ -33,6 +34,12 @@ export default function Home() {
 
       {/* ROUTINE */}
       <Routine />
+
+      {/* SPACE */}
+      <div className="h-[16vh]" />
+
+      {/* CONTACT */}
+      <Contact />
 
       {/* AMBIENT BOTTOM GLOW */}
       <div
@@ -67,8 +74,8 @@ export default function Home() {
         "
       />
 
-      {/* EXTRA SPACE FOR NEXT SECTIONS */}
-      <div className="h-[18vh]" />
+      {/* EXTRA SPACE */}
+      <div className="h-[10vh]" />
     </main>
   );
 }
