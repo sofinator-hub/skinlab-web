@@ -32,7 +32,7 @@ const moods = [
     particle:
       "radial-gradient(circle, rgba(124,139,104,0.18) 1px, transparent 1px)",
 
-    product: "/images/producton3.webp",
+    product: "/images/serum4.webp",
   },
 
   {
@@ -56,7 +56,7 @@ const moods = [
     particle:
       "radial-gradient(circle, rgba(158,206,215,0.18) 1px, transparent 1px)",
 
-    product: "/images/producton4.webp",
+    product: "/images/serum5.webp",
   },
 
   {
@@ -80,7 +80,7 @@ const moods = [
     particle:
       "radial-gradient(circle, rgba(198,162,127,0.18) 1px, transparent 1px)",
 
-    product: "/images/producton6.webp",
+    product: "/images/serum1.webp",
   },
 ];
 
@@ -312,7 +312,7 @@ export default function Hero() {
                 z-20
                 flex
                 items-center
-                justify-center
+                translate-x-[80px]
               "
             >
               {/* MODEL GLOW */}
