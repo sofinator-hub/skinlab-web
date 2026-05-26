@@ -146,7 +146,7 @@ export default function ExperienceBanner() {
                   text-[#666]
                 "
               >
-                Featured Experience
+                Experiencia EDEN
               </span>
             </div>
 
@@ -160,7 +160,7 @@ export default function ExperienceBanner() {
                 lg:text-[4.4rem]
               "
             >
-              Glow Recovery Kit
+              Kit Regeneración Facial
             </h2>
 
             <p
