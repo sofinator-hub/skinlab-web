@@ -14,8 +14,8 @@ import {
 const moods = [
   {
     id: 0,
-    icon: Leaf, 
-    name: "Forest", 
+    icon: Leaf,
+    name: "Forest",
     label: "Botanical Energy",
 
     title: "Ciencia\n para una nueva era del skincare.",
@@ -31,8 +31,8 @@ const moods = [
 
   {
     id: 1,
-    icon: Waves, 
-    name: "Water", 
+    icon: Waves,
+    name: "Water",
     label: "Hydration Ritual",
 
     title: "Hidratación pura\n para una piel agotada.",
@@ -48,8 +48,8 @@ const moods = [
 
   {
     id: 2,
-    icon: Mountain, 
-    name: "Earth", 
+    icon: Mountain,
+    name: "Earth",
     label: "Earth Minerals",
 
     title: "Belleza mineral\n y calma profunda.",
@@ -70,7 +70,7 @@ export default function Hero() {
   return (
     <section
       className="
-        relative 
+        relative
         overflow-hidden
         bg-transparent
       "
@@ -92,7 +92,7 @@ export default function Hero() {
           inset-0
           z-[1]
           opacity-70
-        " 
+        "
       />
 
       {/* MAIN GLOW */}
@@ -110,6 +110,7 @@ export default function Hero() {
           w-[350px]
           rounded-full
           blur-[100px]
+
           lg:right-[-220px]
           lg:top-[-120px]
           lg:h-[900px]
@@ -141,7 +142,7 @@ export default function Hero() {
         "
       >
         EDEN
-      </motion.div> 
+      </motion.div>
 
       {/* NAVBAR */}
       <header
@@ -222,6 +223,7 @@ export default function Hero() {
           px-6
           pb-16
           pt-2
+
           lg:min-h-[88vh]
           lg:flex-row
           lg:items-center
@@ -235,6 +237,7 @@ export default function Hero() {
             order-2
             w-full
             max-w-[650px]
+
             lg:order-1
           "
         >
@@ -249,6 +252,7 @@ export default function Hero() {
               bg-white/[0.18]
               p-5
               backdrop-blur-md
+
               lg:rounded-[42px]
               lg:p-10
               lg:backdrop-blur-[24px]
@@ -300,6 +304,7 @@ export default function Hero() {
                     uppercase
                     tracking-[0.22em]
                     text-[#666]
+
                     lg:text-[10px]
                   "
                 >
@@ -334,7 +339,9 @@ export default function Hero() {
                       leading-[0.92]
                       tracking-[-0.07em]
                       text-[#171717]
+
                       sm:text-[3.4rem]
+
                       lg:text-[5.2rem]
                     "
                   >
@@ -348,6 +355,7 @@ export default function Hero() {
                       text-[0.95rem]
                       leading-[1.7]
                       text-[#5f5f5f]
+
                       lg:mt-6
                       lg:text-[1rem]
                     "
@@ -366,6 +374,7 @@ export default function Hero() {
               grid
               grid-cols-3
               gap-3
+
               lg:mt-8
             "
           >
@@ -468,9 +477,11 @@ export default function Hero() {
             flex
             items-center
             justify-center
+
             lg:order-2
             lg:mb-0
             lg:flex-1
+            lg:translate-x-[-60px]
           "
         >
           {/* MODEL GLOW */}
@@ -486,6 +497,7 @@ export default function Hero() {
               rounded-full
               blur-[80px]
               opacity-70
+
               lg:h-[520px]
               lg:w-[520px]
               lg:blur-[140px]
@@ -518,7 +530,9 @@ export default function Hero() {
                 object-contain
                 mix-blend-multiply
                 opacity-[0.97]
+
                 sm:h-[58vh]
+
                 lg:h-[90vh]
               "
             />
@@ -541,17 +555,19 @@ export default function Hero() {
           }}
           className="
             absolute
-            bottom-[80px]
-            right-[60px]
+            bottom-[60px]
+            right-[20px]
             z-40
             hidden
-            w-[240px]
+            h-[420px]
+            w-[220px]
             overflow-hidden
-            rounded-[999px]
+            rounded-[48px]
             border
             border-white/30
             bg-white/[0.22]
-            p-5
+            px-5
+            py-7
             backdrop-blur-[24px]
             lg:block
           "
@@ -559,6 +575,18 @@ export default function Hero() {
             boxShadow: `0 20px 60px ${active.glow}`,
           }}
         >
+          {/* LIGHT */}
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-b
+              from-white/45
+              to-transparent
+              opacity-60
+            "
+          />
+
           {/* PRODUCT */}
           <motion.div
             animate={{
@@ -573,16 +601,21 @@ export default function Hero() {
               relative
               z-20
               flex
+              flex-1
+              items-center
               justify-center
+              pt-6
             "
           >
             <Image
               src={active.product}
               alt={active.name}
-              width={160}
-              height={210}
+              width={130}
+              height={180}
               quality={90}
-              className="object-contain"
+              className="
+                object-contain
+              "
             />
           </motion.div>
 
@@ -591,13 +624,13 @@ export default function Hero() {
             className="
               relative
               z-20
-              mt-3
+              mt-auto
               text-center
             "
           >
             <p
               className="
-                text-[11px]
+                text-[10px]
                 uppercase
                 tracking-[0.24em]
                 text-[#777]
@@ -609,7 +642,7 @@ export default function Hero() {
             <h3
               className="
                 mt-3
-                text-[1.1rem]
+                text-[1rem]
                 font-medium
                 tracking-[-0.03em]
                 text-[#222]
